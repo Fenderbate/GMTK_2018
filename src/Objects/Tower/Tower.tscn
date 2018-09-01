@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Objects/Tower/Tower.gd" type="Script" id=1]
+[ext_resource path="res://src/Art/Tileset.png" type="Texture" id=2]
+[ext_resource path="res://src/Art/white_square.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 16, 16 )
+extents = Vector2( 14, 20 )
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -68,7 +70,7 @@ shadow_size = 0
 anti_aliasing = true
 anti_aliasing_size = 1
 
-[node name="Tower" type="Area2D" groups=[
+[node name="Tower" type="Area2D" index="0" groups=[
 "Enemy",
 ]]
 
@@ -82,28 +84,20 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
+captured = false
+targetable = true
 
-[node name="ColorRect" type="ColorRect" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -16.0
-margin_top = -16.0
-margin_right = 16.0
-margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
-_sections_unfolded = [ "Rect" ]
+position = Vector2( 0, -23 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 128, 0, 64, 64 )
+_sections_unfolded = [ "Rect", "Region" ]
 
 [node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( -2, -19 )
 shape = SubResource( 1 )
 
 [node name="Range" type="Area2D" parent="." index="2"]
@@ -130,16 +124,23 @@ wait_time = 0.5
 one_shot = false
 autostart = false
 
-[node name="Healthbar" type="ProgressBar" parent="." index="4"]
+[node name="ShieldTimer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = false
+autostart = false
+
+[node name="Healthbar" type="ProgressBar" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -37.0
-margin_top = -24.0
-margin_right = 37.0
-margin_bottom = -8.0
+margin_left = -40.0
+margin_top = -47.0
+margin_right = 34.0
+margin_bottom = -31.0
 rect_scale = Vector2( 1, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -159,10 +160,43 @@ rounded = true
 percent_visible = false
 _sections_unfolded = [ "Rect", "custom_styles" ]
 
+[node name="Select" type="TextureButton" parent="." index="6"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -16.0
+margin_top = -39.0
+margin_right = 12.0
+margin_bottom = 2.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="ShootingPivot" type="Position2D" parent="." index="7"]
+
+position = Vector2( 0, -39 )
+
 [connection signal="area_entered" from="Range" to="." method="_on_Range_area_entered"]
 
 [connection signal="area_exited" from="Range" to="." method="_on_Range_area_exited"]
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+
+[connection signal="timeout" from="ShieldTimer" to="." method="_on_ShieldTimer_timeout"]
+
+[connection signal="button_down" from="Select" to="." method="_on_Select_button_down"]
 
 

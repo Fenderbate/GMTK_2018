@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Objects/MoraleBoostSpell/MoraleBoostSpell.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[node name="MoraleBoostSpell" type="Area2D"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -112, 0, 0, -48, 112, 0, 0, 48 )
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+modulate = Color( 1, 0.539063, 0, 0.508314 )
+position = Vector2( -0.248957, -0.161851 )
+rotation = -0.7917
+scale = Vector2( 1.37351, 1.39891 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[connection signal="area_entered" from="." to="." method="_on_MoraleBoostSpell_area_entered"]
+
+[connection signal="area_exited" from="." to="." method="_on_MoraleBoostSpell_area_exited"]
+
+

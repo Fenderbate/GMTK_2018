@@ -1,6 +1,9 @@
 extends Area2D
 
 signal captured(instance)
+signal tower_select(instance)
+
+var projectile = preload("res://src/Objects/EnemyAttack/EnemyAttack.tscn")
 
 var target = null
 
@@ -9,32 +12,64 @@ var target_arr = []
 var damage = 1
 var attack_speed = 1 # in seconds
 var health = 10
-export var captured = false
+export var captured = false setget set_captured
+export var targetable = true
 
 var heal_amount = 1
+
+var upgrade = null setget set_upgrade
+
+func set_upgrade(value):
+	upgrade = value
+	
+	match upgrade:
+		0:
+			pass
+		1:
+			
+			$ShootTimer.wait_time = 0.5
+			$Range/Area.shape = CircleShape2D.new()
+			$Range/Area.shape.radius = 250
+		2:
+			$ShootTimer.wait_time = 0.01
+			$Range/Area.shape = CircleShape2D.new()
+			$Range/Area.shape.radius = 300
+			$ShieldTimer.start()
+		null:
+				pass
 
 func _ready():
 	
 	connect("captured", get_tree().root.get_node("World"), "target_captured")
+	connect("tower_select", get_tree().root.get_node("World"), "menu_select_changed")
 	$Healthbar.max_value = health
 	$Healthbar.value = health
 	
+	if captured:
+		emit_signal("captured", self)
+	
+
+func set_captured(value):
+	captured = value
+	if captured:
+		emit_signal("captured", self)
 
 func _physics_process(delta):
-	
 	pass
-	
 
 func hurt(damage):
 	health -= damage
 	$Healthbar.value = health
-	print(health)
 	if health <= 0:
-		captured = true
-		emit_signal("captured", self)
+		self.captured = true
+		
 
 func shoot(projectile_target):
-	projectile_target.hurt(damage)
+	var p = projectile.instance()
+	p.position = $ShootingPivot.global_position
+	p.target_pos = projectile_target.position
+	get_tree().root.get_node("World").add_child(p)
+	#projectile_target.hurt(damage)
 
 func heal(heal_target):
 	heal_target.heal(heal_amount)
@@ -47,7 +82,20 @@ func _on_ShootTimer_timeout():
 			return
 	
 	if !captured:
+		
 		shoot(target)
+	else:
+		match upgrade:
+			0:
+				pass
+			1:
+				heal(target)
+				for t in target_arr:
+					heal(t)
+			2:
+				target.shield = true
+				for t in target_arr:
+					t.shield = true
 	
 	$ShootTimer.start()
 
@@ -63,6 +111,9 @@ func _on_Range_area_entered(area):
 	
 	if $ShootTimer.is_stopped():
 		$ShootTimer.start()
+	
+	if captured and upgrade == 2:
+		area.shield = true
 
 
 func _on_Range_area_exited(area):
@@ -74,3 +125,20 @@ func _on_Range_area_exited(area):
 			modulate = Color(1, 0, 0, 1)
 		else:
 			target_arr.remove(target_arr.find(area))
+	
+	if captured and upgrade == 2:
+		area.shield = false
+	
+
+func _on_Select_button_down():
+	if captured:
+		emit_signal("tower_select", self)
+	else:
+		print("not captured yet!")
+
+
+func _on_ShieldTimer_timeout():
+	for u in get_tree().root.get_node("World/Units").get_children():
+		if u.shield:
+			u.shield = false
+	self.upgrade = null

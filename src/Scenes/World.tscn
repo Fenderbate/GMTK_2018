@@ -1,17 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://src/Tilemaps/Test/test.tmx" type="PackedScene" id=2]
 [ext_resource path="res://src/Tilemaps/Test/TestTileset2.tres" type="TileSet" id=3]
-[ext_resource path="res://src/Objects/Tower/Tower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://src/Objects/Tower/Tower.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/Base/Base.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/GroundTrap/GroundTrap.tscn" type="PackedScene" id=7]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
 
 [node name="test" parent="." index="0" instance=ExtResource( 2 )]
-
-editor/display_folded = true
 
 [node name="Nav" type="Navigation2D" parent="." index="1"]
 
@@ -35,44 +37,325 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 262157, 0, 0, 262158, 0, 0, 327693, 0, 0, 327694, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 524301, 0, 0, 524302, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589837, 0, 0, 589838, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655373, 0, 0, 655374, 0, 0, 720898, 0, 0, 720899, 0, 0, 720902, 0, 0, 720903, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 786434, 0, 0, 786435, 0, 0, 786438, 0, 0, 786439, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 851970, 0, 0, 851971, 0, 0, 851974, 0, 0, 851975, 0, 0, 851990, 0, 0, 851991, 0, 0, 917506, 0, 0, 917507, 0, 0, 917510, 0, 0, 917511, 0, 0, 917526, 0, 0, 917527, 0, 0, 983042, 0, 0, 983043, 0, 0, 983046, 0, 0, 983047, 0, 0, 983062, 0, 0, 983063, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1114114, 0, 0, 1114115, 0, 0, 1114118, 0, 0, 1114119, 0, 0, 1114120, 0, 0, 1114121, 0, 0, 1114122, 0, 0, 1114123, 0, 0, 1114124, 0, 0, 1114125, 0, 0, 1114126, 0, 0, 1114127, 0, 0, 1114128, 0, 0, 1114129, 0, 0, 1114130, 0, 0, 1114131, 0, 0, 1114132, 0, 0, 1114133, 0, 0, 1114134, 0, 0, 1114135, 0, 0, 1179650, 0, 0, 1179651, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1245186, 0, 0, 1245187, 0, 0 )
+tile_data = PoolIntArray( 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 262158, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 458766, 0, 0, 524302, 0, 0, 589838, 0, 0, 655374, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 786455, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 917527, 0, 0, 917528, 0, 0, 917529, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0 )
 
-[node name="Units" type="Node" parent="." index="2"]
+[node name="Menu" type="Control" parent="." index="2"]
 
-[node name="Towers" type="Node" parent="." index="3"]
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 592.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Mouse", "Rect", "Transform" ]
+
+[node name="UpgradeBar" type="Container" parent="Menu" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -80.0
+rect_min_size = Vector2( 1024, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Panel" type="Panel" parent="Menu/UpgradeBar" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Damage" type="TextureButton" parent="Menu/UpgradeBar/Panel" index="0"]
+
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -496.0
+margin_top = -80.0
+margin_right = -432.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="Heal" type="TextureButton" parent="Menu/UpgradeBar/Panel" index="1"]
+
+modulate = Color( 0.125, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -416.0
+margin_top = -80.0
+margin_right = -352.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="Shield" type="TextureButton" parent="Menu/UpgradeBar/Panel" index="2"]
+
+modulate = Color( 0, 0.71875, 1, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -336.0
+margin_top = -80.0
+margin_right = -272.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="SpellBar" type="Container" parent="Menu" index="1"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_right = -8.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="Panel" type="Panel" parent="Menu/SpellBar" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 8.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="MoraleBoost" type="TextureButton" parent="Menu/SpellBar/Panel" index="0"]
+
+modulate = Color( 1, 0.351563, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="Fortify" type="TextureButton" parent="Menu/SpellBar/Panel" index="1"]
+
+modulate = Color( 0.730072, 0.433594, 1, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 80.0
+margin_right = 64.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="Units" type="Node" parent="." index="3"]
+
+[node name="Towers" type="Node" parent="." index="4"]
 
 editor/display_folded = true
 
-[node name="Tower" parent="Towers" index="0" instance=ExtResource( 4 )]
+[node name="Tower" parent="Towers" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( 544, 224 )
-captured = false
+position = Vector2( 496, 64 )
 
-[node name="Tower2" parent="Towers" index="1" instance=ExtResource( 4 )]
+[node name="Tower2" parent="Towers" index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 480, 96 )
-captured = false
+position = Vector2( 560, 192 )
 
-[node name="Tower3" parent="Towers" index="2" instance=ExtResource( 4 )]
+[node name="Tower3" parent="Towers" index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 736, 480 )
-captured = false
+position = Vector2( 784, 448 )
 
-[node name="Start_pos" type="Position2D" parent="." index="4"]
+[node name="Tower4" parent="Towers" index="3" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+position = Vector2( 224, 448 )
+captured = true
+
+[node name="Tower5" parent="Towers" index="4" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+position = Vector2( 592, 272 )
+captured = true
+
+[node name="Tower6" parent="Towers" index="5" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+position = Vector2( 352, 176 )
+targetable = false
+
+[node name="Start_pos" type="Position2D" parent="." index="5"]
 
 position = Vector2( 16, 80 )
-
-[node name="End_pos" type="Position2D" parent="." index="5"]
-
-position = Vector2( 96, 592 )
 
 [node name="SpawnTimer" type="Timer" parent="." index="6"]
 
 process_mode = 1
-wait_time = 0.8
+wait_time = 5.0
 one_shot = false
 autostart = true
+
+[node name="Base" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 80, 496 )
+
+[node name="GroundTrap" parent="." index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 208, 80 )
+effect_area = Vector2( 48, 16 )
+
+[node name="GroundTrap2" parent="." index="9" instance=ExtResource( 7 )]
+
+position = Vector2( 464, 272 )
+effect_area = Vector2( 16, 48 )
+
+[node name="VictoryScreen" type="Node2D" parent="." index="10"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 464, 272 )
+
+[node name="Panel" type="Panel" parent="VictoryScreen" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -150.0
+margin_top = -150.0
+margin_right = 150.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="VictoryScreen/Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 134.0
+margin_right = 124.0
+margin_bottom = 148.0
+rect_scale = Vector2( 2.5, 2.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Stage clear!"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[connection signal="button_down" from="Menu/UpgradeBar/Panel/Damage" to="." method="_on_Upgrade_selected" binds= [ 0 ]]
+
+[connection signal="button_down" from="Menu/UpgradeBar/Panel/Heal" to="." method="_on_Upgrade_selected" binds= [ 1 ]]
+
+[connection signal="button_down" from="Menu/UpgradeBar/Panel/Shield" to="." method="_on_Upgrade_selected" binds= [ 2 ]]
+
+[connection signal="button_down" from="Menu/SpellBar/Panel/MoraleBoost" to="." method="_on_MoraleBoost_button_down"]
+
+[connection signal="button_down" from="Menu/SpellBar/Panel/Fortify" to="." method="_on_Fortify_button_down"]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
 
+[editable path="Towers/Tower4"]
