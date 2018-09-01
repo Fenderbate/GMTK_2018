@@ -6,11 +6,28 @@ Put tilemaps into src/Tilemaps/Stage[STAGENUMBER]
 KovagoD
 [ ] Towers
   [ ] Enemy
-  [ ] Empty
-  [ ] Captured
+  [x] Empty
+  [x] Captured
+  [ ] Upgraded
+    [ ] Healer
+    [ ] Shielder
+[ ] Upgrade icons
+  [ ] Shield icon
+  [ ] Heal icon
+[ ] Spell icons
+  [ ] Fortify icon
+  [ ] Battle Morale icon
+[ ] Spell animations
+  [ ] Fortify spell effect
+  [ ] Battle Morale spell effect
+[ ] Level completed menu
 
 Fenderbate
-[ ] Add spells
-  [ ] Fortify: Boost a singe tower's abilisies
+[x] Add spells
+  [x] Fortify: Boost a singe tower's abilities
   [x] Battle Morale: Boost the movespeed and attackspeed of units for a short time
+[ ] Rcharge timer for spells (clockvise reload indicator)
+[ ] Indicator for Fortify spell
 [ ] Draw selected tower's range
+[ ] Level transition
+
