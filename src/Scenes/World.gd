@@ -30,7 +30,7 @@ func get_closest_target():
 	if ret != null:
 		return ret
 	else:
-		print("error in finding target or no target remaining.")
+		#print("error in finding target or no target remaining.")
 		return $End_pos
 		
 func target_destroyed(target_instance):

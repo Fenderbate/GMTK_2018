@@ -8,12 +8,14 @@ var target_arr = []
 
 var damage = 1
 var attack_speed = 1 # in seconds
-var health = 100
+var health = 10
 var destroyed = false
 
 func _ready():
 	
 	connect("destroyed", get_tree().root.get_node("World"), "target_destroyed")
+	$Healthbar.max_value = health
+	$Healthbar.value = health
 	
 
 func _physics_process(delta):
@@ -29,6 +31,7 @@ func _draw():
 
 func hurt(damage):
 	health -= damage
+	$Healthbar.value = health
 	print(health)
 	if health <= 0:
 		destroyed = true

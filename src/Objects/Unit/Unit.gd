@@ -1,15 +1,15 @@
 extends Area2D
 
-var speed = 150
+var speed = 200
 var nav = null setget set_nav
 var path = []
 var goal = null setget set_goal
 
 var distance_threshold = 5
 
-var attack_range = 60
+var attack_range = 50
 
-var health = 10
+var health = 5
 var damage = 1
 
 func set_nav(new_nav):
@@ -25,19 +25,22 @@ func initalize(_goal,_nav):
 	nav = _nav
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	$Healthbar.max_value = health
+	$Healthbar.value = health
 
 func hurt(dmg):
 	health -= dmg
+	$Healthbar.value = health
 	if health <= 0:
 		queue_free()
 
 func update_path():
+	$AtttackTimer.stop()
 	path = nav.get_simple_path(position, goal.position, false)
 	if path.size() == 0:
 		pass
+
+
 
 func _physics_process(delta):
 	if path.size() > 1:
@@ -48,5 +51,13 @@ func _physics_process(delta):
 		else:
 			path.remove(0)
 	else:
-		if position.distance_to(goal.position) <= attack_range and goal.is_in_group("Enemy"):
-			goal.hurt(damage)
+		if position.distance_to(goal.position) <= attack_range:
+			if $AtttackTimer.is_stopped():
+				if goal.is_in_group("Enemy"):
+					goal.hurt(damage)
+				$AtttackTimer.start()
+
+func _on_AtttackTimer_timeout():
+	if goal.is_in_group("Enemy") and position.distance_to(goal.position) <= attack_range:
+		goal.hurt(damage)
+	$AtttackTimer.start()
