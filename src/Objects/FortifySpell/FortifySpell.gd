@@ -7,10 +7,18 @@ func _ready():
 	# Initialization here
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == 1 and event.pressed:
+			target.fortify()
+			get_parent().spells.Fortify = false
+			queue_free()
+		elif event.button_index == 2 and event.pressed:
+			queue_free()
+
+func _process(delta):
+	
+	position += (get_global_mouse_position() - position)
 
 
 func _on_FortifySpell_area_entered(area):

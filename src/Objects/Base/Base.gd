@@ -1,14 +1,14 @@
-extends Position2D
+extends Area2D
 
 signal victory
 
-var health = 100
+export var health = 100
 
 var base_captured = false
 
 var targets = []
 
-var damage = 0.25
+var damage = 0.075
 
 func _ready():
 	

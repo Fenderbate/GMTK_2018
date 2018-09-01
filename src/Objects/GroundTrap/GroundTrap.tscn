@@ -12,6 +12,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+damage = 0.01
 effect_area = Vector2( 16, 16 )
 
 [node name="ColorRect" type="ColorRect" parent="." index="0"]

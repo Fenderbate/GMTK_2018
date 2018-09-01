@@ -2,7 +2,7 @@ extends Area2D
 
 var targets = []
 
-var damage = 0.1
+export var damage = 0.01
 
 export var effect_area = Vector2(16,16)
 

@@ -15,7 +15,7 @@ var health = 10
 export var captured = false setget set_captured
 export var targetable = true
 
-var heal_amount = 1
+var heal_amount = 0.5
 
 var upgrade = null setget set_upgrade
 
@@ -73,6 +73,15 @@ func shoot(projectile_target):
 
 func heal(heal_target):
 	heal_target.heal(heal_amount)
+
+func fortify():
+	match upgrade:
+		0:
+			pass
+		1:
+			heal_amount = heal_amount * 2
+		2:
+			$ShieldTimer.start()
 
 func _on_ShootTimer_timeout():
 	if target == null:

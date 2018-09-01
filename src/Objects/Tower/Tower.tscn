@@ -1,8 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Objects/Tower/Tower.gd" type="Script" id=1]
-[ext_resource path="res://src/Art/Tileset.png" type="Texture" id=2]
-[ext_resource path="res://src/Art/white_square.png" type="Texture" id=3]
+[ext_resource path="res://src/Tilemaps/Test/Tileset.png" type="Texture" id=2]
+[ext_resource path="res://src/Objects/Unit/HP_BAR__bacg.png" type="Texture" id=3]
+[ext_resource path="res://src/Objects/Unit/HP_BAR_progress.png" type="Texture" id=4]
+[ext_resource path="res://src/Art/white_square.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -13,62 +15,6 @@ extents = Vector2( 14, 20 )
 
 custom_solver_bias = 0.0
 radius = 183.0
-
-[sub_resource type="StyleBoxFlat" id=3]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 1, 0, 0, 1 )
-draw_center = true
-border_width_left = 0
-border_width_top = 0
-border_width_right = 0
-border_width_bottom = 0
-border_color = Color( 0.8, 0.8, 0.8, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
-
-[sub_resource type="StyleBoxFlat" id=4]
-
-content_margin_left = -1.0
-content_margin_right = -1.0
-content_margin_top = -1.0
-content_margin_bottom = -1.0
-bg_color = Color( 0, 0, 0, 1 )
-draw_center = true
-border_width_left = 0
-border_width_top = 0
-border_width_right = 0
-border_width_bottom = 0
-border_color = Color( 0.8, 0.8, 0.8, 1 )
-border_blend = false
-corner_radius_top_left = 0
-corner_radius_top_right = 0
-corner_radius_bottom_right = 0
-corner_radius_bottom_left = 0
-corner_detail = 8
-expand_margin_left = 0.0
-expand_margin_right = 0.0
-expand_margin_top = 0.0
-expand_margin_bottom = 0.0
-shadow_color = Color( 0, 0, 0, 0.6 )
-shadow_size = 0
-anti_aliasing = true
-anti_aliasing_size = 1
 
 [node name="Tower" type="Area2D" index="0" groups=[
 "Enemy",
@@ -92,7 +38,7 @@ targetable = true
 position = Vector2( 0, -23 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 128, 0, 64, 64 )
+region_rect = Rect2( 192, 0, 64, 64 )
 _sections_unfolded = [ "Rect", "Region" ]
 
 [node name="Hitbox" type="CollisionShape2D" parent="." index="1"]
@@ -131,25 +77,23 @@ wait_time = 5.0
 one_shot = false
 autostart = false
 
-[node name="Healthbar" type="ProgressBar" parent="." index="5"]
+[node name="Healthbar" type="TextureProgress" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -40.0
-margin_top = -47.0
-margin_right = 34.0
-margin_bottom = -31.0
-rect_scale = Vector2( 1, 0.5 )
+margin_left = -33.0
+margin_top = -83.0
+margin_right = 95.0
+margin_bottom = -19.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 0
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+size_flags_vertical = 1
 min_value = 0.0
 max_value = 100.0
 step = 1.0
@@ -157,8 +101,13 @@ page = 0.0
 value = 100.0
 exp_edit = false
 rounded = true
-percent_visible = false
-_sections_unfolded = [ "Rect", "custom_styles" ]
+texture_under = ExtResource( 3 )
+texture_over = null
+texture_progress = ExtResource( 4 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Rect", "Textures", "custom_styles" ]
 
 [node name="Select" type="TextureButton" parent="." index="6"]
 
@@ -182,7 +131,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 5 )
 _sections_unfolded = [ "Textures", "Visibility" ]
 
 [node name="ShootingPivot" type="Position2D" parent="." index="7"]
