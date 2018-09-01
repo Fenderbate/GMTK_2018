@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://src/Tilemaps/Test/test.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="NavigationPolygon" id=1]
 
-vertices = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+vertices = PoolVector2Array( 40, 40, -8, 40, -8, -8, 40, -8 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 ) ]
+outlines = [ PoolVector2Array( 40, 40, -8, 40, -8, -8, 40, -8 ) ]
 
 [node name="TestTileset" type="Node"]
 
@@ -14,7 +15,9 @@ outlines = [ PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 ) ]
 
 texture = ExtResource( 1 )
 centered = false
-_sections_unfolded = [ "Offset", "Transform" ]
+region_enabled = true
+region_rect = Rect2( 0, 32, 32, 32 )
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Road" index="0"]
 
@@ -24,8 +27,8 @@ enabled = true
 [node name="Grass" type="Sprite" parent="." index="1"]
 
 position = Vector2( 64, 0 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 centered = false
-_sections_unfolded = [ "Offset", "Transform" ]
+_sections_unfolded = [ "Offset", "Region", "Transform" ]
 
 

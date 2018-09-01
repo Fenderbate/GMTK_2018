@@ -10,9 +10,7 @@ onready var nav = $Nav
 onready var map = $Nav/Map
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	$Nav.modulate.a = 0
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -23,7 +21,7 @@ func get_closest_target():
 	var ret = null
 	var distance = 100000
 	for t in $Towers.get_children():
-		if $Start_pos.position.distance_to(t.position) < distance and !t.destroyed:
+		if $Start_pos.position.distance_to(t.position) < distance and !t.captured:
 			distance = $Start_pos.position.distance_to(t.position)
 			ret = t
 	
@@ -33,10 +31,10 @@ func get_closest_target():
 		#print("error in finding target or no target remaining.")
 		return $End_pos
 		
-func target_destroyed(target_instance):
+func target_captured(target_instance):
 	for u in $Units.get_children():
 		u.goal = get_closest_target()
-	target_instance.queue_free()
+	#target_instance.modulate = Color(0,1,0,1)
 
 func _on_SpawnTimer_timeout():
 	var u = unit.instance()

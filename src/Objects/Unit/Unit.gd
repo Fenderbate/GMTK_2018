@@ -9,6 +9,7 @@ var distance_threshold = 5
 
 var attack_range = 50
 
+var MAX_HEALTH = 5
 var health = 5
 var damage = 1
 
@@ -25,14 +26,22 @@ func initalize(_goal,_nav):
 	nav = _nav
 
 func _ready():
-	$Healthbar.max_value = health
+	$Healthbar.max_value = MAX_HEALTH
 	$Healthbar.value = health
+
+func heal(hp):
+	health += hp
+	if health > MAX_HEALTH:
+		health = MAX_HEALTH
 
 func hurt(dmg):
 	health -= dmg
 	$Healthbar.value = health
 	if health <= 0:
 		queue_free()
+
+func moral_boost():
+	speed += 100
 
 func update_path():
 	$AtttackTimer.stop()

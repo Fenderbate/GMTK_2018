@@ -11,7 +11,12 @@ config_version=3
 [application]
 
 config/name="GMTK_2018"
+run/main_scene="res://src/Scenes/World.tscn"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "vnen.tiled_importer" )
 
 [layer_names]
 
@@ -22,3 +27,7 @@ config/icon="res://icon.png"
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+
+[tiled_importer]
+
+enable_json_format=true

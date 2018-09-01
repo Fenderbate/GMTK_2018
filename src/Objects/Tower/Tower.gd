@@ -1,6 +1,6 @@
 extends Area2D
 
-signal destroyed(instance)
+signal captured(instance)
 
 var target = null
 
@@ -9,37 +9,35 @@ var target_arr = []
 var damage = 1
 var attack_speed = 1 # in seconds
 var health = 10
-var destroyed = false
+export var captured = false
+
+var heal_amount = 1
 
 func _ready():
 	
-	connect("destroyed", get_tree().root.get_node("World"), "target_destroyed")
+	connect("captured", get_tree().root.get_node("World"), "target_captured")
 	$Healthbar.max_value = health
 	$Healthbar.value = health
 	
 
 func _physics_process(delta):
 	
+	pass
 	
-	update()
-	
-
-func _draw():
-	
-	if target != null:
-		draw_line(Vector2(0,0), target.global_position - global_position,Color(1,0,0,1),3)
 
 func hurt(damage):
 	health -= damage
 	$Healthbar.value = health
 	print(health)
 	if health <= 0:
-		destroyed = true
-		emit_signal("destroyed", self)
+		captured = true
+		emit_signal("captured", self)
 
 func shoot(projectile_target):
 	projectile_target.hurt(damage)
-	pass
+
+func heal(heal_target):
+	heal_target.heal(heal_amount)
 
 func _on_ShootTimer_timeout():
 	if target == null:
@@ -48,7 +46,9 @@ func _on_ShootTimer_timeout():
 		else:
 			return
 	
-	shoot(target)
+	if !captured:
+		shoot(target)
+	
 	$ShootTimer.start()
 
 
