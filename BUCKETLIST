@@ -27,7 +27,7 @@ Fenderbate
 [x] Add spells
   [x] Fortify: Boost a singe tower's abilities
   [x] Battle Morale: Boost the movespeed and attackspeed of units for a short time
-[ ] Rcharge timer for spells (clockvise reload indicator)
+[x] Recharge timer for spells (clockvise reload indicator)
 [x] Indicator for Fortify spell
 [x] Draw selected tower's range
 [ ] Level transition
