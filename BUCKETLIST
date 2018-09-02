@@ -8,20 +8,20 @@ KovagoD
   [x] Enemy
   [x] Empty
   [x] Captured
-  [x] graded
-    [x] Healer
-    [x] Shielder
-[ ] Upgrade icons
-  [ ] Shield icon
-  [ ] Heal icon
-[ ] Spell icons
-  [ ] Fortify icon
-  [ ] Battle Morale icon
+  [x] upgraded
+    [x] Healer:tilesetben megtalálod, zöld körvonal
+    [x] Shielder:tilesetben megtalálod, kék körvonal
+[x] Upgrade icons
+  [x] Shield icon
+  [x] Heal icon
+[x] Spell icons
+  [x] Fortify icon
+  [x] Battle Morale icon
 [ ] Sprite for enemy base
 [ ] Spell animations
   [ ] Fortify spell effect
   [ ] Battle Morale spell effect
-[ ] Level completed menu
+[ ] Level completed menu (300x300/400x400)
 
 Fenderbate
 [x] Add spells
