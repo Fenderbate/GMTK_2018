@@ -17,11 +17,11 @@ KovagoD
 [x] Spell icons
   [x] Fortify icon
   [x] Battle Morale icon
-[ ] Sprite for enemy base
-[ ] Spell animations
-  [ ] Fortify spell effect
-  [ ] Battle Morale spell effect
-[ ] Level completed menu
+[x] Sprite for enemy base
+[x] Level completed menu
+[ ] Spell effects
+  [ ] Fortify spell effect: a "boost effect" on the tower
+  [ ] Battle Morale spell effect: an indicator for the area of the effect
 
 Fenderbate
 [x] Add spells
