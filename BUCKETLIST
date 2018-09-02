@@ -4,13 +4,13 @@ Put tilemaps into src/Tilemaps/Stage[STAGENUMBER]
 
 
 KovagoD
-[ ] Towers
-  [ ] Enemy
+[x] Towers
+  [x] Enemy
   [x] Empty
   [x] Captured
-  [ ] Upgraded
-    [ ] Healer
-    [ ] Shielder
+  [x] graded
+    [x] Healer
+    [x] Shielder
 [ ] Upgrade icons
   [ ] Shield icon
   [ ] Heal icon
