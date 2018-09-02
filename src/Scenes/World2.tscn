@@ -1,0 +1,824 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://src/Scenes/World.gd" type="Script" id=1]
+[ext_resource path="res://src/Art/spellbar.png" type="Texture" id=2]
+[ext_resource path="res://src/Font/Octavius-Joined.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://src/Art/Upgrade_icon_heal.png" type="Texture" id=5]
+[ext_resource path="res://src/Art/Upgrade_icon_shield.png" type="Texture" id=6]
+[ext_resource path="res://src/Art/Spell_icon_BattleMorale.png" type="Texture" id=7]
+[ext_resource path="res://src/Art/Spell_recharge_shader.png" type="Texture" id=8]
+[ext_resource path="res://src/Art/Spell_icon_fortify.png" type="Texture" id=9]
+[ext_resource path="res://src/Art/EndOfStage.png" type="Texture" id=10]
+[ext_resource path="res://src/Art/white_square.png" type="Texture" id=11]
+[ext_resource path="res://src/Tilemaps/Test/map_2.tmx" type="PackedScene" id=12]
+[ext_resource path="res://src/Tilemaps/Test/TestTileset2.tres" type="TileSet" id=13]
+[ext_resource path="res://src/Objects/Tower/Tower.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/Objects/Base/Base.gd" type="Script" id=15]
+[ext_resource path="res://src/Tilemaps/Test/Tileset.png" type="Texture" id=16]
+[ext_resource path="res://src/Objects/GroundTrap/GroundTrap.gd" type="Script" id=17]
+[ext_resource path="res://src/Art/trap_1.png" type="Texture" id=18]
+[ext_resource path="res://src/Audio/Ingame.OGG" type="AudioStream" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 509, 293 )
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 13
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=8]
+
+size = 22
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=9]
+
+size = 22
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 11
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 11
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 48, 32 )
+
+[sub_resource type="CircleShape2D" id=6]
+
+custom_solver_bias = 0.0
+radius = 174.485
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 128, 16 )
+
+[node name="World" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
+unit_number = 50
+nextstage = 3
+
+[node name="SCREEN_BOUNDS" type="StaticBody2D" parent="." index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 8
+collision_mask = 8
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="Polygon2D" type="CollisionPolygon2D" parent="SCREEN_BOUNDS" index="0"]
+
+position = Vector2( 1, 0 )
+build_mode = 0
+polygon = PoolVector2Array( -1, 0, 1215, 0, 1215, 1152, -1, 1152, -1, 0, -50, -37, -281, 1328, 1420, 1322, 1437, -221, -50, -37 )
+
+[node name="CameraLimitTopLeft" type="Position2D" parent="." index="1"]
+
+position = Vector2( 512, 296 )
+z_index = 101
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="CameraLimitBotRight" type="Position2D" parent="." index="2"]
+
+position = Vector2( 1610, 1090 )
+z_index = 101
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Camera" type="KinematicBody2D" parent="." index="3"]
+
+position = Vector2( 512, 296 )
+z_index = 200
+input_pickable = false
+collision_layer = 8
+collision_mask = 8
+collision/safe_margin = 0.08
+_sections_unfolded = [ "Collision", "Transform", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="Camera" index="1"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+
+[node name="MenuRoot" type="CanvasLayer" parent="Camera/Camera2D" index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Menu" type="Control" parent="Camera/Camera2D/MenuRoot" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 592.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Mouse", "Rect", "Transform" ]
+
+[node name="UpgradeBar" type="Container" parent="Camera/Camera2D/MenuRoot/Menu" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -80.0
+rect_min_size = Vector2( 1024, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Sprite" type="Sprite" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar" index="0"]
+
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Description" type="Label" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 344.0
+margin_top = 21.0
+margin_right = 682.0
+margin_bottom = 72.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Panel" type="Panel" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar" index="2"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
+
+[node name="Damage" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel" index="0"]
+
+visible = false
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -496.0
+margin_top = -80.0
+margin_right = -432.0
+margin_bottom = -16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="Heal" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel" index="1"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -496.0
+margin_top = -64.0
+margin_right = -432.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="Shield" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel" index="2"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -416.0
+margin_top = -64.0
+margin_right = -352.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="SpellBar" type="Container" parent="Camera/Camera2D/MenuRoot/Menu" index="1"]
+
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.0
+margin_right = -8.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Panel" type="Panel" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar" index="0"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 8.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="MoraleBoost" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -96.0
+margin_top = 528.0
+margin_right = -32.0
+margin_bottom = 592.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="MBCD" type="TextureProgress" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/MoraleBoost" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = null
+texture_over = null
+texture_progress = ExtResource( 8 )
+fill_mode = 5
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Mouse", "Textures" ]
+
+[node name="Fortify" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -16.0
+margin_top = 528.0
+margin_right = 48.0
+margin_bottom = 592.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 9 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="FCD" type="TextureProgress" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/Fortify" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = null
+texture_over = null
+texture_progress = ExtResource( 8 )
+fill_mode = 5
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Mouse", "Textures" ]
+
+[node name="Units1" type="Label" parent="Camera/Camera2D/MenuRoot/Menu" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 175.0
+margin_top = 460.0
+margin_right = 334.0
+margin_bottom = 570.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Units2" type="Label" parent="Camera/Camera2D/MenuRoot/Menu" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 698.0
+margin_top = 469.0
+margin_right = 857.0
+margin_bottom = 579.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 9 )
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="VictoryScreen" type="Node2D" parent="Camera/Camera2D/MenuRoot" index="1"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 512, 246 )
+z_index = 100
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Panel" type="Sprite" parent="Camera/Camera2D/MenuRoot/VictoryScreen" index="0"]
+
+position = Vector2( 1, 127 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Offset", "Rect" ]
+
+[node name="StageClear" type="Label" parent="Camera/Camera2D/MenuRoot/VictoryScreen/Panel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -134.0
+margin_top = -136.0
+margin_right = -26.0
+margin_bottom = -104.0
+rect_scale = Vector2( 2.5, 2.5 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Stage clear!"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Next" type="Label" parent="Camera/Camera2D/MenuRoot/VictoryScreen/Panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -58.0
+margin_top = -46.0
+margin_right = 37.0
+margin_bottom = -29.0
+rect_scale = Vector2( 1.2, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Next"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="NextStage" type="TextureButton" parent="Camera/Camera2D/MenuRoot/VictoryScreen/Panel" index="2"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -58.0
+margin_top = -46.0
+margin_right = 56.0
+margin_bottom = -26.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 11 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="map_2" parent="." index="4" instance=ExtResource( 12 )]
+
+editor/display_folded = true
+position = Vector2( 576, -1083 )
+
+[node name="Nav" type="Navigation2D" parent="." index="5"]
+
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Map" type="TileMap" parent="Nav" index="0"]
+
+position = Vector2( 16, 16 )
+mode = 0
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 196639, 0, 0, 196640, 0, 0, 196641, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 327712, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0, 393250, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0, 458772, 0, 0, 458778, 0, 0, 458790, 0, 0, 524308, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524326, 0, 0, 589844, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589862, 0, 0, 655380, 0, 0, 655398, 0, 0, 720916, 0, 0, 720934, 0, 0, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 0, 786438, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 786446, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786470, 0, 0, 852006, 0, 0, 917542, 0, 0, 983072, 0, 0, 983073, 0, 0, 983078, 0, 0, 1048608, 0, 0, 1048609, 0, 0, 1048610, 0, 0, 1048611, 0, 0, 1048612, 0, 0, 1048613, 0, 0, 1048614, 0, 0, 1114150, 0, 0, 1179686, 0, 0, 1245222, 0, 0, 1245240, 0, 0, 1245241, 0, 0, 1310758, 0, 0, 1310759, 0, 0, 1310760, 0, 0, 1310761, 0, 0, 1310762, 0, 0, 1310763, 0, 0, 1310764, 0, 0, 1310765, 0, 0, 1310766, 0, 0, 1310767, 0, 0, 1310768, 0, 0, 1310769, 0, 0, 1310770, 0, 0, 1310771, 0, 0, 1310772, 0, 0, 1310773, 0, 0, 1310774, 0, 0, 1310775, 0, 0, 1310776, 0, 0, 1310777, 0, 0, 1376308, 0, 0, 1376312, 0, 0, 1376313, 0, 0, 1441844, 0, 0, 1507380, 0, 0, 1572916, 0, 0, 1638447, 0, 0, 1638448, 0, 0, 1638452, 0, 0, 1703983, 0, 0, 1703984, 0, 0, 1703985, 0, 0, 1703986, 0, 0, 1703987, 0, 0, 1703988, 0, 0, 1769519, 0, 0, 1769520, 0, 0, 1769524, 0, 0, 1835060, 0, 0, 1900595, 0, 0, 1900596, 0, 0, 1966089, 0, 0, 1966131, 0, 0, 1966132, 0, 0, 1966133, 0, 0, 1966134, 0, 0, 1966135, 0, 0, 2031670, 0, 0, 2031671, 0, 0, 2097206, 0, 0, 2162742, 0, 0, 2228277, 0, 0, 2228278, 0, 0, 2228279, 0, 0, 2293813, 0, 0, 2293814, 0, 0, 2293815, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Units" type="Node" parent="." index="6"]
+
+[node name="Towers" type="Node" parent="." index="7"]
+
+editor/display_folded = true
+
+[node name="Tower3" parent="Towers" index="0" instance=ExtResource( 14 )]
+
+position = Vector2( 864, 320 )
+
+[node name="Tower4" parent="Towers" index="1" instance=ExtResource( 14 )]
+
+editor/display_folded = true
+position = Vector2( 1056, 144 )
+
+[node name="Tower5" parent="Towers" index="2" instance=ExtResource( 14 )]
+
+position = Vector2( 1072, 528 )
+
+[node name="Tower6" parent="Towers" index="3" instance=ExtResource( 14 )]
+
+position = Vector2( 1840, 672 )
+
+[node name="Tower7" parent="Towers" index="4" instance=ExtResource( 14 )]
+
+position = Vector2( 1552, 864 )
+
+[node name="Tower8" parent="Towers" index="5" instance=ExtResource( 14 )]
+
+position = Vector2( 1776, 1008 )
+
+[node name="Start_pos" type="Position2D" parent="." index="8"]
+
+position = Vector2( 96, 416 )
+
+[node name="SpawnTimer" type="Timer" parent="." index="9"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[node name="Base" type="Area2D" parent="." index="10" groups=[
+"Enemy",
+]]
+
+editor/display_folded = true
+position = Vector2( 1760, 1168 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 15 )
+health = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base" index="0"]
+
+position = Vector2( 0, -32 )
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Base" index="1"]
+
+position = Vector2( 0, -32 )
+texture = ExtResource( 16 )
+region_enabled = true
+region_rect = Rect2( 128, 448, 128, 128 )
+_sections_unfolded = [ "Region", "Transform" ]
+
+[node name="Defense" type="Area2D" parent="Base" index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="Range" type="CollisionShape2D" parent="Base/Defense" index="0"]
+
+shape = SubResource( 6 )
+
+[node name="GroundTrap" type="Area2D" parent="." index="11"]
+
+position = Vector2( 1632, 672 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 17 )
+damage = 0.01
+effect_area = Vector2( 16, 16 )
+
+[node name="ColorRect" type="TextureRect" parent="GroundTrap" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -80.0
+margin_top = -32.0
+margin_right = 176.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundTrap" index="1"]
+
+position = Vector2( 48, 0 )
+shape = SubResource( 7 )
+
+[node name="BMTimer" type="Timer" parent="." index="12"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = false
+
+[node name="FTimer" type="Timer" parent="." index="13"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="14"]
+
+stream = ExtResource( 19 )
+volume_db = -30.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 2
+bus = "Master"
+
+[connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Heal" to="." method="_on_Upgrade_selected" binds= [ 1 ]]
+
+[connection signal="mouse_entered" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Heal" to="." method="_on_Button_mouse_entered" binds= [ 0 ]]
+
+[connection signal="mouse_exited" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Heal" to="." method="_on_Button_mouse_left"]
+
+[connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Shield" to="." method="_on_Upgrade_selected" binds= [ 2 ]]
+
+[connection signal="mouse_entered" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Shield" to="." method="_on_Button_mouse_entered" binds= [ 1 ]]
+
+[connection signal="mouse_exited" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Shield" to="." method="_on_Button_mouse_left"]
+
+[connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/MoraleBoost" to="." method="_on_MoraleBoost_button_down"]
+
+[connection signal="mouse_entered" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/MoraleBoost" to="." method="_on_Button_mouse_entered" binds= [ 2 ]]
+
+[connection signal="mouse_exited" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/MoraleBoost" to="." method="_on_Button_mouse_left"]
+
+[connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/Fortify" to="." method="_on_Fortify_button_down"]
+
+[connection signal="mouse_entered" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/Fortify" to="." method="_on_Button_mouse_entered" binds= [ 3 ]]
+
+[connection signal="mouse_exited" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/Fortify" to="." method="_on_Button_mouse_left"]
+
+[connection signal="button_down" from="Camera/Camera2D/MenuRoot/VictoryScreen/Panel/NextStage" to="." method="_on_NextStage_button_down"]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+
+[connection signal="area_entered" from="Base/Defense" to="Base" method="_on_Defense_area_entered"]
+
+[connection signal="area_exited" from="Base/Defense" to="Base" method="_on_Defense_area_exited"]
+
+[connection signal="area_entered" from="GroundTrap" to="GroundTrap" method="_on_GroundTrap_area_entered"]
+
+[connection signal="area_exited" from="GroundTrap" to="GroundTrap" method="_on_GroundTrap_area_exited"]
+
+[connection signal="timeout" from="BMTimer" to="." method="_on_BMTimer_timeout"]
+
+[connection signal="timeout" from="FTimer" to="." method="_on_FTimer_timeout"]
+
+
+[editable path="map_2"]
+[editable path="Towers/Tower4"]

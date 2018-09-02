@@ -10,9 +10,9 @@ config_version=3
 
 [application]
 
-config/name="GMTK_2018"
-run/main_scene="res://src/Scenes/World.tscn"
-config/icon="res://icon.png"
+config/name="Ostrom"
+run/main_scene="res://src/Scenes/Intro.tscn"
+config/icon="res://src/Objects/Unit/knight_1.png"
 
 [display]
 

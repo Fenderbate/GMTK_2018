@@ -2,13 +2,11 @@
 
 importer="vnen.tiled_importer"
 type="PackedScene"
-path="res://.import/map3.tmx-132ef033a755a48535f30463407df848.scn"
+valid=false
 
 [deps]
 
-source_file="res://src/Tilemaps/Test/map3.tmx"
-dest_files=[ "res://.import/map3.tmx-132ef033a755a48535f30463407df848.scn" ]
-
+source_file="res://src/Art/map_3.tmx"
 [params]
 
 custom_properties=true

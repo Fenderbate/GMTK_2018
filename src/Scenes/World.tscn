@@ -1,24 +1,64 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/Scenes/World.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://src/Tilemaps/Test/test.tmx" type="PackedScene" id=3]
-[ext_resource path="res://src/Tilemaps/Test/Tileset.png" type="Texture" id=4]
-[ext_resource path="res://src/Tilemaps/Test/TestTileset2.tres" type="TileSet" id=5]
-[ext_resource path="res://src/Objects/Tower/Tower.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/Objects/Base/Base.gd" type="Script" id=7]
-[ext_resource path="res://src/Objects/GroundTrap/GroundTrap.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Font/Octavius-Joined.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://src/Art/spellbar.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://src/Art/Upgrade_icon_heal.png" type="Texture" id=5]
+[ext_resource path="res://src/Art/Upgrade_icon_shield.png" type="Texture" id=6]
+[ext_resource path="res://src/Art/Spell_icon_BattleMorale.png" type="Texture" id=7]
+[ext_resource path="res://src/Art/Spell_recharge_shader.png" type="Texture" id=8]
+[ext_resource path="res://src/Art/Spell_icon_fortify.png" type="Texture" id=9]
+[ext_resource path="res://src/Art/EndOfStage.png" type="Texture" id=10]
+[ext_resource path="res://src/Art/white_square.png" type="Texture" id=11]
+[ext_resource path="res://src/Tilemaps/Test/test.tmx" type="PackedScene" id=12]
+[ext_resource path="res://src/Tilemaps/Test/Tileset.png" type="Texture" id=13]
+[ext_resource path="res://src/Tilemaps/Test/TestTileset2.tres" type="TileSet" id=14]
+[ext_resource path="res://src/Objects/Tower/Tower.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/Objects/Base/Base.gd" type="Script" id=16]
+[ext_resource path="res://src/Audio/Ingame.OGG" type="AudioStream" id=17]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 509, 293 )
 
-[sub_resource type="TileSet" id=1]
+[sub_resource type="DynamicFont" id=8]
 
-resource_name = "Tileset"
+size = 22
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 13
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 11
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 11
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="TileSet" id=5]
+
 1/name = ""
-1/texture = ExtResource( 4 )
+1/texture = ExtResource( 13 )
 1/tex_offset = Vector2( 0, -64 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 64, 64 )
@@ -27,7 +67,7 @@ resource_name = "Tileset"
 1/navigation_offset = Vector2( 0, 0 )
 1/shapes = [  ]
 2/name = ""
-2/texture = ExtResource( 4 )
+2/texture = ExtResource( 13 )
 2/tex_offset = Vector2( 0, -64 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 64, 0, 64, 64 )
@@ -36,7 +76,7 @@ resource_name = "Tileset"
 2/navigation_offset = Vector2( 0, 0 )
 2/shapes = [  ]
 3/name = ""
-3/texture = ExtResource( 4 )
+3/texture = ExtResource( 13 )
 3/tex_offset = Vector2( 0, -64 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 128, 0, 64, 64 )
@@ -45,7 +85,7 @@ resource_name = "Tileset"
 3/navigation_offset = Vector2( 0, 0 )
 3/shapes = [  ]
 4/name = ""
-4/texture = ExtResource( 4 )
+4/texture = ExtResource( 13 )
 4/tex_offset = Vector2( 0, -64 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 192, 0, 64, 64 )
@@ -54,7 +94,7 @@ resource_name = "Tileset"
 4/navigation_offset = Vector2( 0, 0 )
 4/shapes = [  ]
 5/name = ""
-5/texture = ExtResource( 4 )
+5/texture = ExtResource( 13 )
 5/tex_offset = Vector2( 0, -64 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 256, 0, 64, 64 )
@@ -63,7 +103,7 @@ resource_name = "Tileset"
 5/navigation_offset = Vector2( 0, 0 )
 5/shapes = [  ]
 6/name = ""
-6/texture = ExtResource( 4 )
+6/texture = ExtResource( 13 )
 6/tex_offset = Vector2( 0, -64 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 320, 0, 64, 64 )
@@ -72,7 +112,7 @@ resource_name = "Tileset"
 6/navigation_offset = Vector2( 0, 0 )
 6/shapes = [  ]
 7/name = ""
-7/texture = ExtResource( 4 )
+7/texture = ExtResource( 13 )
 7/tex_offset = Vector2( 0, -64 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 384, 0, 64, 64 )
@@ -81,7 +121,7 @@ resource_name = "Tileset"
 7/navigation_offset = Vector2( 0, 0 )
 7/shapes = [  ]
 8/name = ""
-8/texture = ExtResource( 4 )
+8/texture = ExtResource( 13 )
 8/tex_offset = Vector2( 0, -64 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 448, 0, 64, 64 )
@@ -90,7 +130,7 @@ resource_name = "Tileset"
 8/navigation_offset = Vector2( 0, 0 )
 8/shapes = [  ]
 9/name = ""
-9/texture = ExtResource( 4 )
+9/texture = ExtResource( 13 )
 9/tex_offset = Vector2( 0, -64 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 512, 0, 64, 64 )
@@ -99,7 +139,7 @@ resource_name = "Tileset"
 9/navigation_offset = Vector2( 0, 0 )
 9/shapes = [  ]
 10/name = ""
-10/texture = ExtResource( 4 )
+10/texture = ExtResource( 13 )
 10/tex_offset = Vector2( 0, -64 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 576, 0, 64, 64 )
@@ -108,7 +148,7 @@ resource_name = "Tileset"
 10/navigation_offset = Vector2( 0, 0 )
 10/shapes = [  ]
 11/name = ""
-11/texture = ExtResource( 4 )
+11/texture = ExtResource( 13 )
 11/tex_offset = Vector2( 0, -64 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 0, 64, 64, 64 )
@@ -117,7 +157,7 @@ resource_name = "Tileset"
 11/navigation_offset = Vector2( 0, 0 )
 11/shapes = [  ]
 12/name = ""
-12/texture = ExtResource( 4 )
+12/texture = ExtResource( 13 )
 12/tex_offset = Vector2( 0, -64 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 64, 64, 64, 64 )
@@ -126,7 +166,7 @@ resource_name = "Tileset"
 12/navigation_offset = Vector2( 0, 0 )
 12/shapes = [  ]
 13/name = ""
-13/texture = ExtResource( 4 )
+13/texture = ExtResource( 13 )
 13/tex_offset = Vector2( 0, -64 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 128, 64, 64, 64 )
@@ -135,7 +175,7 @@ resource_name = "Tileset"
 13/navigation_offset = Vector2( 0, 0 )
 13/shapes = [  ]
 14/name = ""
-14/texture = ExtResource( 4 )
+14/texture = ExtResource( 13 )
 14/tex_offset = Vector2( 0, -64 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 192, 64, 64, 64 )
@@ -144,7 +184,7 @@ resource_name = "Tileset"
 14/navigation_offset = Vector2( 0, 0 )
 14/shapes = [  ]
 15/name = ""
-15/texture = ExtResource( 4 )
+15/texture = ExtResource( 13 )
 15/tex_offset = Vector2( 0, -64 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 256, 64, 64, 64 )
@@ -153,7 +193,7 @@ resource_name = "Tileset"
 15/navigation_offset = Vector2( 0, 0 )
 15/shapes = [  ]
 16/name = ""
-16/texture = ExtResource( 4 )
+16/texture = ExtResource( 13 )
 16/tex_offset = Vector2( 0, -64 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 320, 64, 64, 64 )
@@ -162,7 +202,7 @@ resource_name = "Tileset"
 16/navigation_offset = Vector2( 0, 0 )
 16/shapes = [  ]
 17/name = ""
-17/texture = ExtResource( 4 )
+17/texture = ExtResource( 13 )
 17/tex_offset = Vector2( 0, -64 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 384, 64, 64, 64 )
@@ -171,7 +211,7 @@ resource_name = "Tileset"
 17/navigation_offset = Vector2( 0, 0 )
 17/shapes = [  ]
 18/name = ""
-18/texture = ExtResource( 4 )
+18/texture = ExtResource( 13 )
 18/tex_offset = Vector2( 0, -64 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 448, 64, 64, 64 )
@@ -180,7 +220,7 @@ resource_name = "Tileset"
 18/navigation_offset = Vector2( 0, 0 )
 18/shapes = [  ]
 19/name = ""
-19/texture = ExtResource( 4 )
+19/texture = ExtResource( 13 )
 19/tex_offset = Vector2( 0, -64 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 512, 64, 64, 64 )
@@ -189,7 +229,7 @@ resource_name = "Tileset"
 19/navigation_offset = Vector2( 0, 0 )
 19/shapes = [  ]
 20/name = ""
-20/texture = ExtResource( 4 )
+20/texture = ExtResource( 13 )
 20/tex_offset = Vector2( 0, -64 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 576, 64, 64, 64 )
@@ -198,7 +238,7 @@ resource_name = "Tileset"
 20/navigation_offset = Vector2( 0, 0 )
 20/shapes = [  ]
 21/name = ""
-21/texture = ExtResource( 4 )
+21/texture = ExtResource( 13 )
 21/tex_offset = Vector2( 0, -64 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 128, 64, 64 )
@@ -207,7 +247,7 @@ resource_name = "Tileset"
 21/navigation_offset = Vector2( 0, 0 )
 21/shapes = [  ]
 22/name = ""
-22/texture = ExtResource( 4 )
+22/texture = ExtResource( 13 )
 22/tex_offset = Vector2( 0, -64 )
 22/modulate = Color( 1, 1, 1, 1 )
 22/region = Rect2( 64, 128, 64, 64 )
@@ -216,7 +256,7 @@ resource_name = "Tileset"
 22/navigation_offset = Vector2( 0, 0 )
 22/shapes = [  ]
 23/name = ""
-23/texture = ExtResource( 4 )
+23/texture = ExtResource( 13 )
 23/tex_offset = Vector2( 0, -64 )
 23/modulate = Color( 1, 1, 1, 1 )
 23/region = Rect2( 128, 128, 64, 64 )
@@ -225,7 +265,7 @@ resource_name = "Tileset"
 23/navigation_offset = Vector2( 0, 0 )
 23/shapes = [  ]
 24/name = ""
-24/texture = ExtResource( 4 )
+24/texture = ExtResource( 13 )
 24/tex_offset = Vector2( 0, -64 )
 24/modulate = Color( 1, 1, 1, 1 )
 24/region = Rect2( 192, 128, 64, 64 )
@@ -234,7 +274,7 @@ resource_name = "Tileset"
 24/navigation_offset = Vector2( 0, 0 )
 24/shapes = [  ]
 25/name = ""
-25/texture = ExtResource( 4 )
+25/texture = ExtResource( 13 )
 25/tex_offset = Vector2( 0, -64 )
 25/modulate = Color( 1, 1, 1, 1 )
 25/region = Rect2( 256, 128, 64, 64 )
@@ -243,7 +283,7 @@ resource_name = "Tileset"
 25/navigation_offset = Vector2( 0, 0 )
 25/shapes = [  ]
 26/name = ""
-26/texture = ExtResource( 4 )
+26/texture = ExtResource( 13 )
 26/tex_offset = Vector2( 0, -64 )
 26/modulate = Color( 1, 1, 1, 1 )
 26/region = Rect2( 320, 128, 64, 64 )
@@ -252,7 +292,7 @@ resource_name = "Tileset"
 26/navigation_offset = Vector2( 0, 0 )
 26/shapes = [  ]
 27/name = ""
-27/texture = ExtResource( 4 )
+27/texture = ExtResource( 13 )
 27/tex_offset = Vector2( 0, -64 )
 27/modulate = Color( 1, 1, 1, 1 )
 27/region = Rect2( 384, 128, 64, 64 )
@@ -261,7 +301,7 @@ resource_name = "Tileset"
 27/navigation_offset = Vector2( 0, 0 )
 27/shapes = [  ]
 28/name = ""
-28/texture = ExtResource( 4 )
+28/texture = ExtResource( 13 )
 28/tex_offset = Vector2( 0, -64 )
 28/modulate = Color( 1, 1, 1, 1 )
 28/region = Rect2( 448, 128, 64, 64 )
@@ -270,7 +310,7 @@ resource_name = "Tileset"
 28/navigation_offset = Vector2( 0, 0 )
 28/shapes = [  ]
 29/name = ""
-29/texture = ExtResource( 4 )
+29/texture = ExtResource( 13 )
 29/tex_offset = Vector2( 0, -64 )
 29/modulate = Color( 1, 1, 1, 1 )
 29/region = Rect2( 512, 128, 64, 64 )
@@ -279,7 +319,7 @@ resource_name = "Tileset"
 29/navigation_offset = Vector2( 0, 0 )
 29/shapes = [  ]
 30/name = ""
-30/texture = ExtResource( 4 )
+30/texture = ExtResource( 13 )
 30/tex_offset = Vector2( 0, -64 )
 30/modulate = Color( 1, 1, 1, 1 )
 30/region = Rect2( 576, 128, 64, 64 )
@@ -288,7 +328,7 @@ resource_name = "Tileset"
 30/navigation_offset = Vector2( 0, 0 )
 30/shapes = [  ]
 31/name = ""
-31/texture = ExtResource( 4 )
+31/texture = ExtResource( 13 )
 31/tex_offset = Vector2( 0, -64 )
 31/modulate = Color( 1, 1, 1, 1 )
 31/region = Rect2( 0, 192, 64, 64 )
@@ -297,7 +337,7 @@ resource_name = "Tileset"
 31/navigation_offset = Vector2( 0, 0 )
 31/shapes = [  ]
 32/name = ""
-32/texture = ExtResource( 4 )
+32/texture = ExtResource( 13 )
 32/tex_offset = Vector2( 0, -64 )
 32/modulate = Color( 1, 1, 1, 1 )
 32/region = Rect2( 64, 192, 64, 64 )
@@ -306,7 +346,7 @@ resource_name = "Tileset"
 32/navigation_offset = Vector2( 0, 0 )
 32/shapes = [  ]
 33/name = ""
-33/texture = ExtResource( 4 )
+33/texture = ExtResource( 13 )
 33/tex_offset = Vector2( 0, -64 )
 33/modulate = Color( 1, 1, 1, 1 )
 33/region = Rect2( 128, 192, 64, 64 )
@@ -315,7 +355,7 @@ resource_name = "Tileset"
 33/navigation_offset = Vector2( 0, 0 )
 33/shapes = [  ]
 34/name = ""
-34/texture = ExtResource( 4 )
+34/texture = ExtResource( 13 )
 34/tex_offset = Vector2( 0, -64 )
 34/modulate = Color( 1, 1, 1, 1 )
 34/region = Rect2( 192, 192, 64, 64 )
@@ -324,7 +364,7 @@ resource_name = "Tileset"
 34/navigation_offset = Vector2( 0, 0 )
 34/shapes = [  ]
 35/name = ""
-35/texture = ExtResource( 4 )
+35/texture = ExtResource( 13 )
 35/tex_offset = Vector2( 0, -64 )
 35/modulate = Color( 1, 1, 1, 1 )
 35/region = Rect2( 256, 192, 64, 64 )
@@ -333,7 +373,7 @@ resource_name = "Tileset"
 35/navigation_offset = Vector2( 0, 0 )
 35/shapes = [  ]
 36/name = ""
-36/texture = ExtResource( 4 )
+36/texture = ExtResource( 13 )
 36/tex_offset = Vector2( 0, -64 )
 36/modulate = Color( 1, 1, 1, 1 )
 36/region = Rect2( 320, 192, 64, 64 )
@@ -342,7 +382,7 @@ resource_name = "Tileset"
 36/navigation_offset = Vector2( 0, 0 )
 36/shapes = [  ]
 37/name = ""
-37/texture = ExtResource( 4 )
+37/texture = ExtResource( 13 )
 37/tex_offset = Vector2( 0, -64 )
 37/modulate = Color( 1, 1, 1, 1 )
 37/region = Rect2( 384, 192, 64, 64 )
@@ -351,7 +391,7 @@ resource_name = "Tileset"
 37/navigation_offset = Vector2( 0, 0 )
 37/shapes = [  ]
 38/name = ""
-38/texture = ExtResource( 4 )
+38/texture = ExtResource( 13 )
 38/tex_offset = Vector2( 0, -64 )
 38/modulate = Color( 1, 1, 1, 1 )
 38/region = Rect2( 448, 192, 64, 64 )
@@ -360,7 +400,7 @@ resource_name = "Tileset"
 38/navigation_offset = Vector2( 0, 0 )
 38/shapes = [  ]
 39/name = ""
-39/texture = ExtResource( 4 )
+39/texture = ExtResource( 13 )
 39/tex_offset = Vector2( 0, -64 )
 39/modulate = Color( 1, 1, 1, 1 )
 39/region = Rect2( 512, 192, 64, 64 )
@@ -369,7 +409,7 @@ resource_name = "Tileset"
 39/navigation_offset = Vector2( 0, 0 )
 39/shapes = [  ]
 40/name = ""
-40/texture = ExtResource( 4 )
+40/texture = ExtResource( 13 )
 40/tex_offset = Vector2( 0, -64 )
 40/modulate = Color( 1, 1, 1, 1 )
 40/region = Rect2( 576, 192, 64, 64 )
@@ -378,7 +418,7 @@ resource_name = "Tileset"
 40/navigation_offset = Vector2( 0, 0 )
 40/shapes = [  ]
 41/name = ""
-41/texture = ExtResource( 4 )
+41/texture = ExtResource( 13 )
 41/tex_offset = Vector2( 0, -64 )
 41/modulate = Color( 1, 1, 1, 1 )
 41/region = Rect2( 0, 256, 64, 64 )
@@ -387,7 +427,7 @@ resource_name = "Tileset"
 41/navigation_offset = Vector2( 0, 0 )
 41/shapes = [  ]
 42/name = ""
-42/texture = ExtResource( 4 )
+42/texture = ExtResource( 13 )
 42/tex_offset = Vector2( 0, -64 )
 42/modulate = Color( 1, 1, 1, 1 )
 42/region = Rect2( 64, 256, 64, 64 )
@@ -396,7 +436,7 @@ resource_name = "Tileset"
 42/navigation_offset = Vector2( 0, 0 )
 42/shapes = [  ]
 43/name = ""
-43/texture = ExtResource( 4 )
+43/texture = ExtResource( 13 )
 43/tex_offset = Vector2( 0, -64 )
 43/modulate = Color( 1, 1, 1, 1 )
 43/region = Rect2( 128, 256, 64, 64 )
@@ -405,7 +445,7 @@ resource_name = "Tileset"
 43/navigation_offset = Vector2( 0, 0 )
 43/shapes = [  ]
 44/name = ""
-44/texture = ExtResource( 4 )
+44/texture = ExtResource( 13 )
 44/tex_offset = Vector2( 0, -64 )
 44/modulate = Color( 1, 1, 1, 1 )
 44/region = Rect2( 192, 256, 64, 64 )
@@ -414,7 +454,7 @@ resource_name = "Tileset"
 44/navigation_offset = Vector2( 0, 0 )
 44/shapes = [  ]
 45/name = ""
-45/texture = ExtResource( 4 )
+45/texture = ExtResource( 13 )
 45/tex_offset = Vector2( 0, -64 )
 45/modulate = Color( 1, 1, 1, 1 )
 45/region = Rect2( 256, 256, 64, 64 )
@@ -423,7 +463,7 @@ resource_name = "Tileset"
 45/navigation_offset = Vector2( 0, 0 )
 45/shapes = [  ]
 46/name = ""
-46/texture = ExtResource( 4 )
+46/texture = ExtResource( 13 )
 46/tex_offset = Vector2( 0, -64 )
 46/modulate = Color( 1, 1, 1, 1 )
 46/region = Rect2( 320, 256, 64, 64 )
@@ -432,7 +472,7 @@ resource_name = "Tileset"
 46/navigation_offset = Vector2( 0, 0 )
 46/shapes = [  ]
 47/name = ""
-47/texture = ExtResource( 4 )
+47/texture = ExtResource( 13 )
 47/tex_offset = Vector2( 0, -64 )
 47/modulate = Color( 1, 1, 1, 1 )
 47/region = Rect2( 384, 256, 64, 64 )
@@ -441,7 +481,7 @@ resource_name = "Tileset"
 47/navigation_offset = Vector2( 0, 0 )
 47/shapes = [  ]
 48/name = ""
-48/texture = ExtResource( 4 )
+48/texture = ExtResource( 13 )
 48/tex_offset = Vector2( 0, -64 )
 48/modulate = Color( 1, 1, 1, 1 )
 48/region = Rect2( 448, 256, 64, 64 )
@@ -450,7 +490,7 @@ resource_name = "Tileset"
 48/navigation_offset = Vector2( 0, 0 )
 48/shapes = [  ]
 49/name = ""
-49/texture = ExtResource( 4 )
+49/texture = ExtResource( 13 )
 49/tex_offset = Vector2( 0, -64 )
 49/modulate = Color( 1, 1, 1, 1 )
 49/region = Rect2( 512, 256, 64, 64 )
@@ -459,7 +499,7 @@ resource_name = "Tileset"
 49/navigation_offset = Vector2( 0, 0 )
 49/shapes = [  ]
 50/name = ""
-50/texture = ExtResource( 4 )
+50/texture = ExtResource( 13 )
 50/tex_offset = Vector2( 0, -64 )
 50/modulate = Color( 1, 1, 1, 1 )
 50/region = Rect2( 576, 256, 64, 64 )
@@ -468,7 +508,7 @@ resource_name = "Tileset"
 50/navigation_offset = Vector2( 0, 0 )
 50/shapes = [  ]
 51/name = ""
-51/texture = ExtResource( 4 )
+51/texture = ExtResource( 13 )
 51/tex_offset = Vector2( 0, -64 )
 51/modulate = Color( 1, 1, 1, 1 )
 51/region = Rect2( 0, 320, 64, 64 )
@@ -477,7 +517,7 @@ resource_name = "Tileset"
 51/navigation_offset = Vector2( 0, 0 )
 51/shapes = [  ]
 52/name = ""
-52/texture = ExtResource( 4 )
+52/texture = ExtResource( 13 )
 52/tex_offset = Vector2( 0, -64 )
 52/modulate = Color( 1, 1, 1, 1 )
 52/region = Rect2( 64, 320, 64, 64 )
@@ -486,7 +526,7 @@ resource_name = "Tileset"
 52/navigation_offset = Vector2( 0, 0 )
 52/shapes = [  ]
 53/name = ""
-53/texture = ExtResource( 4 )
+53/texture = ExtResource( 13 )
 53/tex_offset = Vector2( 0, -64 )
 53/modulate = Color( 1, 1, 1, 1 )
 53/region = Rect2( 128, 320, 64, 64 )
@@ -495,7 +535,7 @@ resource_name = "Tileset"
 53/navigation_offset = Vector2( 0, 0 )
 53/shapes = [  ]
 54/name = ""
-54/texture = ExtResource( 4 )
+54/texture = ExtResource( 13 )
 54/tex_offset = Vector2( 0, -64 )
 54/modulate = Color( 1, 1, 1, 1 )
 54/region = Rect2( 192, 320, 64, 64 )
@@ -504,7 +544,7 @@ resource_name = "Tileset"
 54/navigation_offset = Vector2( 0, 0 )
 54/shapes = [  ]
 55/name = ""
-55/texture = ExtResource( 4 )
+55/texture = ExtResource( 13 )
 55/tex_offset = Vector2( 0, -64 )
 55/modulate = Color( 1, 1, 1, 1 )
 55/region = Rect2( 256, 320, 64, 64 )
@@ -513,7 +553,7 @@ resource_name = "Tileset"
 55/navigation_offset = Vector2( 0, 0 )
 55/shapes = [  ]
 56/name = ""
-56/texture = ExtResource( 4 )
+56/texture = ExtResource( 13 )
 56/tex_offset = Vector2( 0, -64 )
 56/modulate = Color( 1, 1, 1, 1 )
 56/region = Rect2( 320, 320, 64, 64 )
@@ -522,7 +562,7 @@ resource_name = "Tileset"
 56/navigation_offset = Vector2( 0, 0 )
 56/shapes = [  ]
 57/name = ""
-57/texture = ExtResource( 4 )
+57/texture = ExtResource( 13 )
 57/tex_offset = Vector2( 0, -64 )
 57/modulate = Color( 1, 1, 1, 1 )
 57/region = Rect2( 384, 320, 64, 64 )
@@ -531,7 +571,7 @@ resource_name = "Tileset"
 57/navigation_offset = Vector2( 0, 0 )
 57/shapes = [  ]
 58/name = ""
-58/texture = ExtResource( 4 )
+58/texture = ExtResource( 13 )
 58/tex_offset = Vector2( 0, -64 )
 58/modulate = Color( 1, 1, 1, 1 )
 58/region = Rect2( 448, 320, 64, 64 )
@@ -540,7 +580,7 @@ resource_name = "Tileset"
 58/navigation_offset = Vector2( 0, 0 )
 58/shapes = [  ]
 59/name = ""
-59/texture = ExtResource( 4 )
+59/texture = ExtResource( 13 )
 59/tex_offset = Vector2( 0, -64 )
 59/modulate = Color( 1, 1, 1, 1 )
 59/region = Rect2( 512, 320, 64, 64 )
@@ -549,7 +589,7 @@ resource_name = "Tileset"
 59/navigation_offset = Vector2( 0, 0 )
 59/shapes = [  ]
 60/name = ""
-60/texture = ExtResource( 4 )
+60/texture = ExtResource( 13 )
 60/tex_offset = Vector2( 0, -64 )
 60/modulate = Color( 1, 1, 1, 1 )
 60/region = Rect2( 576, 320, 64, 64 )
@@ -558,7 +598,7 @@ resource_name = "Tileset"
 60/navigation_offset = Vector2( 0, 0 )
 60/shapes = [  ]
 61/name = ""
-61/texture = ExtResource( 4 )
+61/texture = ExtResource( 13 )
 61/tex_offset = Vector2( 0, -64 )
 61/modulate = Color( 1, 1, 1, 1 )
 61/region = Rect2( 0, 384, 64, 64 )
@@ -567,7 +607,7 @@ resource_name = "Tileset"
 61/navigation_offset = Vector2( 0, 0 )
 61/shapes = [  ]
 62/name = ""
-62/texture = ExtResource( 4 )
+62/texture = ExtResource( 13 )
 62/tex_offset = Vector2( 0, -64 )
 62/modulate = Color( 1, 1, 1, 1 )
 62/region = Rect2( 64, 384, 64, 64 )
@@ -576,7 +616,7 @@ resource_name = "Tileset"
 62/navigation_offset = Vector2( 0, 0 )
 62/shapes = [  ]
 63/name = ""
-63/texture = ExtResource( 4 )
+63/texture = ExtResource( 13 )
 63/tex_offset = Vector2( 0, -64 )
 63/modulate = Color( 1, 1, 1, 1 )
 63/region = Rect2( 128, 384, 64, 64 )
@@ -585,7 +625,7 @@ resource_name = "Tileset"
 63/navigation_offset = Vector2( 0, 0 )
 63/shapes = [  ]
 64/name = ""
-64/texture = ExtResource( 4 )
+64/texture = ExtResource( 13 )
 64/tex_offset = Vector2( 0, -64 )
 64/modulate = Color( 1, 1, 1, 1 )
 64/region = Rect2( 192, 384, 64, 64 )
@@ -594,7 +634,7 @@ resource_name = "Tileset"
 64/navigation_offset = Vector2( 0, 0 )
 64/shapes = [  ]
 65/name = ""
-65/texture = ExtResource( 4 )
+65/texture = ExtResource( 13 )
 65/tex_offset = Vector2( 0, -64 )
 65/modulate = Color( 1, 1, 1, 1 )
 65/region = Rect2( 256, 384, 64, 64 )
@@ -603,7 +643,7 @@ resource_name = "Tileset"
 65/navigation_offset = Vector2( 0, 0 )
 65/shapes = [  ]
 66/name = ""
-66/texture = ExtResource( 4 )
+66/texture = ExtResource( 13 )
 66/tex_offset = Vector2( 0, -64 )
 66/modulate = Color( 1, 1, 1, 1 )
 66/region = Rect2( 320, 384, 64, 64 )
@@ -612,7 +652,7 @@ resource_name = "Tileset"
 66/navigation_offset = Vector2( 0, 0 )
 66/shapes = [  ]
 67/name = ""
-67/texture = ExtResource( 4 )
+67/texture = ExtResource( 13 )
 67/tex_offset = Vector2( 0, -64 )
 67/modulate = Color( 1, 1, 1, 1 )
 67/region = Rect2( 384, 384, 64, 64 )
@@ -621,7 +661,7 @@ resource_name = "Tileset"
 67/navigation_offset = Vector2( 0, 0 )
 67/shapes = [  ]
 68/name = ""
-68/texture = ExtResource( 4 )
+68/texture = ExtResource( 13 )
 68/tex_offset = Vector2( 0, -64 )
 68/modulate = Color( 1, 1, 1, 1 )
 68/region = Rect2( 448, 384, 64, 64 )
@@ -630,7 +670,7 @@ resource_name = "Tileset"
 68/navigation_offset = Vector2( 0, 0 )
 68/shapes = [  ]
 69/name = ""
-69/texture = ExtResource( 4 )
+69/texture = ExtResource( 13 )
 69/tex_offset = Vector2( 0, -64 )
 69/modulate = Color( 1, 1, 1, 1 )
 69/region = Rect2( 512, 384, 64, 64 )
@@ -639,7 +679,7 @@ resource_name = "Tileset"
 69/navigation_offset = Vector2( 0, 0 )
 69/shapes = [  ]
 70/name = ""
-70/texture = ExtResource( 4 )
+70/texture = ExtResource( 13 )
 70/tex_offset = Vector2( 0, -64 )
 70/modulate = Color( 1, 1, 1, 1 )
 70/region = Rect2( 576, 384, 64, 64 )
@@ -648,7 +688,7 @@ resource_name = "Tileset"
 70/navigation_offset = Vector2( 0, 0 )
 70/shapes = [  ]
 71/name = ""
-71/texture = ExtResource( 4 )
+71/texture = ExtResource( 13 )
 71/tex_offset = Vector2( 0, -64 )
 71/modulate = Color( 1, 1, 1, 1 )
 71/region = Rect2( 0, 448, 64, 64 )
@@ -657,7 +697,7 @@ resource_name = "Tileset"
 71/navigation_offset = Vector2( 0, 0 )
 71/shapes = [  ]
 72/name = ""
-72/texture = ExtResource( 4 )
+72/texture = ExtResource( 13 )
 72/tex_offset = Vector2( 0, -64 )
 72/modulate = Color( 1, 1, 1, 1 )
 72/region = Rect2( 64, 448, 64, 64 )
@@ -666,7 +706,7 @@ resource_name = "Tileset"
 72/navigation_offset = Vector2( 0, 0 )
 72/shapes = [  ]
 73/name = ""
-73/texture = ExtResource( 4 )
+73/texture = ExtResource( 13 )
 73/tex_offset = Vector2( 0, -64 )
 73/modulate = Color( 1, 1, 1, 1 )
 73/region = Rect2( 128, 448, 64, 64 )
@@ -675,7 +715,7 @@ resource_name = "Tileset"
 73/navigation_offset = Vector2( 0, 0 )
 73/shapes = [  ]
 74/name = ""
-74/texture = ExtResource( 4 )
+74/texture = ExtResource( 13 )
 74/tex_offset = Vector2( 0, -64 )
 74/modulate = Color( 1, 1, 1, 1 )
 74/region = Rect2( 192, 448, 64, 64 )
@@ -684,7 +724,7 @@ resource_name = "Tileset"
 74/navigation_offset = Vector2( 0, 0 )
 74/shapes = [  ]
 75/name = ""
-75/texture = ExtResource( 4 )
+75/texture = ExtResource( 13 )
 75/tex_offset = Vector2( 0, -64 )
 75/modulate = Color( 1, 1, 1, 1 )
 75/region = Rect2( 256, 448, 64, 64 )
@@ -693,7 +733,7 @@ resource_name = "Tileset"
 75/navigation_offset = Vector2( 0, 0 )
 75/shapes = [  ]
 76/name = ""
-76/texture = ExtResource( 4 )
+76/texture = ExtResource( 13 )
 76/tex_offset = Vector2( 0, -64 )
 76/modulate = Color( 1, 1, 1, 1 )
 76/region = Rect2( 320, 448, 64, 64 )
@@ -702,7 +742,7 @@ resource_name = "Tileset"
 76/navigation_offset = Vector2( 0, 0 )
 76/shapes = [  ]
 77/name = ""
-77/texture = ExtResource( 4 )
+77/texture = ExtResource( 13 )
 77/tex_offset = Vector2( 0, -64 )
 77/modulate = Color( 1, 1, 1, 1 )
 77/region = Rect2( 384, 448, 64, 64 )
@@ -711,7 +751,7 @@ resource_name = "Tileset"
 77/navigation_offset = Vector2( 0, 0 )
 77/shapes = [  ]
 78/name = ""
-78/texture = ExtResource( 4 )
+78/texture = ExtResource( 13 )
 78/tex_offset = Vector2( 0, -64 )
 78/modulate = Color( 1, 1, 1, 1 )
 78/region = Rect2( 448, 448, 64, 64 )
@@ -720,7 +760,7 @@ resource_name = "Tileset"
 78/navigation_offset = Vector2( 0, 0 )
 78/shapes = [  ]
 79/name = ""
-79/texture = ExtResource( 4 )
+79/texture = ExtResource( 13 )
 79/tex_offset = Vector2( 0, -64 )
 79/modulate = Color( 1, 1, 1, 1 )
 79/region = Rect2( 512, 448, 64, 64 )
@@ -729,7 +769,7 @@ resource_name = "Tileset"
 79/navigation_offset = Vector2( 0, 0 )
 79/shapes = [  ]
 80/name = ""
-80/texture = ExtResource( 4 )
+80/texture = ExtResource( 13 )
 80/tex_offset = Vector2( 0, -64 )
 80/modulate = Color( 1, 1, 1, 1 )
 80/region = Rect2( 576, 448, 64, 64 )
@@ -738,7 +778,7 @@ resource_name = "Tileset"
 80/navigation_offset = Vector2( 0, 0 )
 80/shapes = [  ]
 81/name = ""
-81/texture = ExtResource( 4 )
+81/texture = ExtResource( 13 )
 81/tex_offset = Vector2( 0, -64 )
 81/modulate = Color( 1, 1, 1, 1 )
 81/region = Rect2( 0, 512, 64, 64 )
@@ -747,7 +787,7 @@ resource_name = "Tileset"
 81/navigation_offset = Vector2( 0, 0 )
 81/shapes = [  ]
 82/name = ""
-82/texture = ExtResource( 4 )
+82/texture = ExtResource( 13 )
 82/tex_offset = Vector2( 0, -64 )
 82/modulate = Color( 1, 1, 1, 1 )
 82/region = Rect2( 64, 512, 64, 64 )
@@ -756,7 +796,7 @@ resource_name = "Tileset"
 82/navigation_offset = Vector2( 0, 0 )
 82/shapes = [  ]
 83/name = ""
-83/texture = ExtResource( 4 )
+83/texture = ExtResource( 13 )
 83/tex_offset = Vector2( 0, -64 )
 83/modulate = Color( 1, 1, 1, 1 )
 83/region = Rect2( 128, 512, 64, 64 )
@@ -765,7 +805,7 @@ resource_name = "Tileset"
 83/navigation_offset = Vector2( 0, 0 )
 83/shapes = [  ]
 84/name = ""
-84/texture = ExtResource( 4 )
+84/texture = ExtResource( 13 )
 84/tex_offset = Vector2( 0, -64 )
 84/modulate = Color( 1, 1, 1, 1 )
 84/region = Rect2( 192, 512, 64, 64 )
@@ -774,7 +814,7 @@ resource_name = "Tileset"
 84/navigation_offset = Vector2( 0, 0 )
 84/shapes = [  ]
 85/name = ""
-85/texture = ExtResource( 4 )
+85/texture = ExtResource( 13 )
 85/tex_offset = Vector2( 0, -64 )
 85/modulate = Color( 1, 1, 1, 1 )
 85/region = Rect2( 256, 512, 64, 64 )
@@ -783,7 +823,7 @@ resource_name = "Tileset"
 85/navigation_offset = Vector2( 0, 0 )
 85/shapes = [  ]
 86/name = ""
-86/texture = ExtResource( 4 )
+86/texture = ExtResource( 13 )
 86/tex_offset = Vector2( 0, -64 )
 86/modulate = Color( 1, 1, 1, 1 )
 86/region = Rect2( 320, 512, 64, 64 )
@@ -792,7 +832,7 @@ resource_name = "Tileset"
 86/navigation_offset = Vector2( 0, 0 )
 86/shapes = [  ]
 87/name = ""
-87/texture = ExtResource( 4 )
+87/texture = ExtResource( 13 )
 87/tex_offset = Vector2( 0, -64 )
 87/modulate = Color( 1, 1, 1, 1 )
 87/region = Rect2( 384, 512, 64, 64 )
@@ -801,7 +841,7 @@ resource_name = "Tileset"
 87/navigation_offset = Vector2( 0, 0 )
 87/shapes = [  ]
 88/name = ""
-88/texture = ExtResource( 4 )
+88/texture = ExtResource( 13 )
 88/tex_offset = Vector2( 0, -64 )
 88/modulate = Color( 1, 1, 1, 1 )
 88/region = Rect2( 448, 512, 64, 64 )
@@ -810,7 +850,7 @@ resource_name = "Tileset"
 88/navigation_offset = Vector2( 0, 0 )
 88/shapes = [  ]
 89/name = ""
-89/texture = ExtResource( 4 )
+89/texture = ExtResource( 13 )
 89/tex_offset = Vector2( 0, -64 )
 89/modulate = Color( 1, 1, 1, 1 )
 89/region = Rect2( 512, 512, 64, 64 )
@@ -819,7 +859,7 @@ resource_name = "Tileset"
 89/navigation_offset = Vector2( 0, 0 )
 89/shapes = [  ]
 90/name = ""
-90/texture = ExtResource( 4 )
+90/texture = ExtResource( 13 )
 90/tex_offset = Vector2( 0, -64 )
 90/modulate = Color( 1, 1, 1, 1 )
 90/region = Rect2( 576, 512, 64, 64 )
@@ -828,7 +868,7 @@ resource_name = "Tileset"
 90/navigation_offset = Vector2( 0, 0 )
 90/shapes = [  ]
 91/name = ""
-91/texture = ExtResource( 4 )
+91/texture = ExtResource( 13 )
 91/tex_offset = Vector2( 0, -64 )
 91/modulate = Color( 1, 1, 1, 1 )
 91/region = Rect2( 0, 576, 64, 64 )
@@ -837,7 +877,7 @@ resource_name = "Tileset"
 91/navigation_offset = Vector2( 0, 0 )
 91/shapes = [  ]
 92/name = ""
-92/texture = ExtResource( 4 )
+92/texture = ExtResource( 13 )
 92/tex_offset = Vector2( 0, -64 )
 92/modulate = Color( 1, 1, 1, 1 )
 92/region = Rect2( 64, 576, 64, 64 )
@@ -846,7 +886,7 @@ resource_name = "Tileset"
 92/navigation_offset = Vector2( 0, 0 )
 92/shapes = [  ]
 93/name = ""
-93/texture = ExtResource( 4 )
+93/texture = ExtResource( 13 )
 93/tex_offset = Vector2( 0, -64 )
 93/modulate = Color( 1, 1, 1, 1 )
 93/region = Rect2( 128, 576, 64, 64 )
@@ -855,7 +895,7 @@ resource_name = "Tileset"
 93/navigation_offset = Vector2( 0, 0 )
 93/shapes = [  ]
 94/name = ""
-94/texture = ExtResource( 4 )
+94/texture = ExtResource( 13 )
 94/tex_offset = Vector2( 0, -64 )
 94/modulate = Color( 1, 1, 1, 1 )
 94/region = Rect2( 192, 576, 64, 64 )
@@ -864,7 +904,7 @@ resource_name = "Tileset"
 94/navigation_offset = Vector2( 0, 0 )
 94/shapes = [  ]
 95/name = ""
-95/texture = ExtResource( 4 )
+95/texture = ExtResource( 13 )
 95/tex_offset = Vector2( 0, -64 )
 95/modulate = Color( 1, 1, 1, 1 )
 95/region = Rect2( 256, 576, 64, 64 )
@@ -873,7 +913,7 @@ resource_name = "Tileset"
 95/navigation_offset = Vector2( 0, 0 )
 95/shapes = [  ]
 96/name = ""
-96/texture = ExtResource( 4 )
+96/texture = ExtResource( 13 )
 96/tex_offset = Vector2( 0, -64 )
 96/modulate = Color( 1, 1, 1, 1 )
 96/region = Rect2( 320, 576, 64, 64 )
@@ -882,7 +922,7 @@ resource_name = "Tileset"
 96/navigation_offset = Vector2( 0, 0 )
 96/shapes = [  ]
 97/name = ""
-97/texture = ExtResource( 4 )
+97/texture = ExtResource( 13 )
 97/tex_offset = Vector2( 0, -64 )
 97/modulate = Color( 1, 1, 1, 1 )
 97/region = Rect2( 384, 576, 64, 64 )
@@ -891,7 +931,7 @@ resource_name = "Tileset"
 97/navigation_offset = Vector2( 0, 0 )
 97/shapes = [  ]
 98/name = ""
-98/texture = ExtResource( 4 )
+98/texture = ExtResource( 13 )
 98/tex_offset = Vector2( 0, -64 )
 98/modulate = Color( 1, 1, 1, 1 )
 98/region = Rect2( 448, 576, 64, 64 )
@@ -900,7 +940,7 @@ resource_name = "Tileset"
 98/navigation_offset = Vector2( 0, 0 )
 98/shapes = [  ]
 99/name = ""
-99/texture = ExtResource( 4 )
+99/texture = ExtResource( 13 )
 99/tex_offset = Vector2( 0, -64 )
 99/modulate = Color( 1, 1, 1, 1 )
 99/region = Rect2( 512, 576, 64, 64 )
@@ -909,7 +949,7 @@ resource_name = "Tileset"
 99/navigation_offset = Vector2( 0, 0 )
 99/shapes = [  ]
 100/name = ""
-100/texture = ExtResource( 4 )
+100/texture = ExtResource( 13 )
 100/tex_offset = Vector2( 0, -64 )
 100/modulate = Color( 1, 1, 1, 1 )
 100/region = Rect2( 576, 576, 64, 64 )
@@ -918,7 +958,7 @@ resource_name = "Tileset"
 100/navigation_offset = Vector2( 0, 0 )
 100/shapes = [  ]
 101/name = ""
-101/texture = ExtResource( 4 )
+101/texture = ExtResource( 13 )
 101/tex_offset = Vector2( 0, -64 )
 101/modulate = Color( 1, 1, 1, 1 )
 101/region = Rect2( 0, 0, 64, 64 )
@@ -927,7 +967,7 @@ resource_name = "Tileset"
 101/navigation_offset = Vector2( 0, 0 )
 101/shapes = [  ]
 102/name = ""
-102/texture = ExtResource( 4 )
+102/texture = ExtResource( 13 )
 102/tex_offset = Vector2( 0, -64 )
 102/modulate = Color( 1, 1, 1, 1 )
 102/region = Rect2( 64, 0, 64, 64 )
@@ -936,7 +976,7 @@ resource_name = "Tileset"
 102/navigation_offset = Vector2( 0, 0 )
 102/shapes = [  ]
 103/name = ""
-103/texture = ExtResource( 4 )
+103/texture = ExtResource( 13 )
 103/tex_offset = Vector2( 0, -64 )
 103/modulate = Color( 1, 1, 1, 1 )
 103/region = Rect2( 128, 0, 64, 64 )
@@ -945,7 +985,7 @@ resource_name = "Tileset"
 103/navigation_offset = Vector2( 0, 0 )
 103/shapes = [  ]
 104/name = ""
-104/texture = ExtResource( 4 )
+104/texture = ExtResource( 13 )
 104/tex_offset = Vector2( 0, -64 )
 104/modulate = Color( 1, 1, 1, 1 )
 104/region = Rect2( 192, 0, 64, 64 )
@@ -954,7 +994,7 @@ resource_name = "Tileset"
 104/navigation_offset = Vector2( 0, 0 )
 104/shapes = [  ]
 105/name = ""
-105/texture = ExtResource( 4 )
+105/texture = ExtResource( 13 )
 105/tex_offset = Vector2( 0, -64 )
 105/modulate = Color( 1, 1, 1, 1 )
 105/region = Rect2( 256, 0, 64, 64 )
@@ -963,7 +1003,7 @@ resource_name = "Tileset"
 105/navigation_offset = Vector2( 0, 0 )
 105/shapes = [  ]
 106/name = ""
-106/texture = ExtResource( 4 )
+106/texture = ExtResource( 13 )
 106/tex_offset = Vector2( 0, -64 )
 106/modulate = Color( 1, 1, 1, 1 )
 106/region = Rect2( 320, 0, 64, 64 )
@@ -972,7 +1012,7 @@ resource_name = "Tileset"
 106/navigation_offset = Vector2( 0, 0 )
 106/shapes = [  ]
 107/name = ""
-107/texture = ExtResource( 4 )
+107/texture = ExtResource( 13 )
 107/tex_offset = Vector2( 0, -64 )
 107/modulate = Color( 1, 1, 1, 1 )
 107/region = Rect2( 384, 0, 64, 64 )
@@ -981,7 +1021,7 @@ resource_name = "Tileset"
 107/navigation_offset = Vector2( 0, 0 )
 107/shapes = [  ]
 108/name = ""
-108/texture = ExtResource( 4 )
+108/texture = ExtResource( 13 )
 108/tex_offset = Vector2( 0, -64 )
 108/modulate = Color( 1, 1, 1, 1 )
 108/region = Rect2( 448, 0, 64, 64 )
@@ -990,7 +1030,7 @@ resource_name = "Tileset"
 108/navigation_offset = Vector2( 0, 0 )
 108/shapes = [  ]
 109/name = ""
-109/texture = ExtResource( 4 )
+109/texture = ExtResource( 13 )
 109/tex_offset = Vector2( 0, -64 )
 109/modulate = Color( 1, 1, 1, 1 )
 109/region = Rect2( 512, 0, 64, 64 )
@@ -999,7 +1039,7 @@ resource_name = "Tileset"
 109/navigation_offset = Vector2( 0, 0 )
 109/shapes = [  ]
 110/name = ""
-110/texture = ExtResource( 4 )
+110/texture = ExtResource( 13 )
 110/tex_offset = Vector2( 0, -64 )
 110/modulate = Color( 1, 1, 1, 1 )
 110/region = Rect2( 576, 0, 64, 64 )
@@ -1008,7 +1048,7 @@ resource_name = "Tileset"
 110/navigation_offset = Vector2( 0, 0 )
 110/shapes = [  ]
 111/name = ""
-111/texture = ExtResource( 4 )
+111/texture = ExtResource( 13 )
 111/tex_offset = Vector2( 0, -64 )
 111/modulate = Color( 1, 1, 1, 1 )
 111/region = Rect2( 0, 64, 64, 64 )
@@ -1017,7 +1057,7 @@ resource_name = "Tileset"
 111/navigation_offset = Vector2( 0, 0 )
 111/shapes = [  ]
 112/name = ""
-112/texture = ExtResource( 4 )
+112/texture = ExtResource( 13 )
 112/tex_offset = Vector2( 0, -64 )
 112/modulate = Color( 1, 1, 1, 1 )
 112/region = Rect2( 64, 64, 64, 64 )
@@ -1026,7 +1066,7 @@ resource_name = "Tileset"
 112/navigation_offset = Vector2( 0, 0 )
 112/shapes = [  ]
 113/name = ""
-113/texture = ExtResource( 4 )
+113/texture = ExtResource( 13 )
 113/tex_offset = Vector2( 0, -64 )
 113/modulate = Color( 1, 1, 1, 1 )
 113/region = Rect2( 128, 64, 64, 64 )
@@ -1035,7 +1075,7 @@ resource_name = "Tileset"
 113/navigation_offset = Vector2( 0, 0 )
 113/shapes = [  ]
 114/name = ""
-114/texture = ExtResource( 4 )
+114/texture = ExtResource( 13 )
 114/tex_offset = Vector2( 0, -64 )
 114/modulate = Color( 1, 1, 1, 1 )
 114/region = Rect2( 192, 64, 64, 64 )
@@ -1044,7 +1084,7 @@ resource_name = "Tileset"
 114/navigation_offset = Vector2( 0, 0 )
 114/shapes = [  ]
 115/name = ""
-115/texture = ExtResource( 4 )
+115/texture = ExtResource( 13 )
 115/tex_offset = Vector2( 0, -64 )
 115/modulate = Color( 1, 1, 1, 1 )
 115/region = Rect2( 256, 64, 64, 64 )
@@ -1053,7 +1093,7 @@ resource_name = "Tileset"
 115/navigation_offset = Vector2( 0, 0 )
 115/shapes = [  ]
 116/name = ""
-116/texture = ExtResource( 4 )
+116/texture = ExtResource( 13 )
 116/tex_offset = Vector2( 0, -64 )
 116/modulate = Color( 1, 1, 1, 1 )
 116/region = Rect2( 320, 64, 64, 64 )
@@ -1062,7 +1102,7 @@ resource_name = "Tileset"
 116/navigation_offset = Vector2( 0, 0 )
 116/shapes = [  ]
 117/name = ""
-117/texture = ExtResource( 4 )
+117/texture = ExtResource( 13 )
 117/tex_offset = Vector2( 0, -64 )
 117/modulate = Color( 1, 1, 1, 1 )
 117/region = Rect2( 384, 64, 64, 64 )
@@ -1071,7 +1111,7 @@ resource_name = "Tileset"
 117/navigation_offset = Vector2( 0, 0 )
 117/shapes = [  ]
 118/name = ""
-118/texture = ExtResource( 4 )
+118/texture = ExtResource( 13 )
 118/tex_offset = Vector2( 0, -64 )
 118/modulate = Color( 1, 1, 1, 1 )
 118/region = Rect2( 448, 64, 64, 64 )
@@ -1080,7 +1120,7 @@ resource_name = "Tileset"
 118/navigation_offset = Vector2( 0, 0 )
 118/shapes = [  ]
 119/name = ""
-119/texture = ExtResource( 4 )
+119/texture = ExtResource( 13 )
 119/tex_offset = Vector2( 0, -64 )
 119/modulate = Color( 1, 1, 1, 1 )
 119/region = Rect2( 512, 64, 64, 64 )
@@ -1089,7 +1129,7 @@ resource_name = "Tileset"
 119/navigation_offset = Vector2( 0, 0 )
 119/shapes = [  ]
 120/name = ""
-120/texture = ExtResource( 4 )
+120/texture = ExtResource( 13 )
 120/tex_offset = Vector2( 0, -64 )
 120/modulate = Color( 1, 1, 1, 1 )
 120/region = Rect2( 576, 64, 64, 64 )
@@ -1098,7 +1138,7 @@ resource_name = "Tileset"
 120/navigation_offset = Vector2( 0, 0 )
 120/shapes = [  ]
 121/name = ""
-121/texture = ExtResource( 4 )
+121/texture = ExtResource( 13 )
 121/tex_offset = Vector2( 0, -64 )
 121/modulate = Color( 1, 1, 1, 1 )
 121/region = Rect2( 0, 128, 64, 64 )
@@ -1107,7 +1147,7 @@ resource_name = "Tileset"
 121/navigation_offset = Vector2( 0, 0 )
 121/shapes = [  ]
 122/name = ""
-122/texture = ExtResource( 4 )
+122/texture = ExtResource( 13 )
 122/tex_offset = Vector2( 0, -64 )
 122/modulate = Color( 1, 1, 1, 1 )
 122/region = Rect2( 64, 128, 64, 64 )
@@ -1116,7 +1156,7 @@ resource_name = "Tileset"
 122/navigation_offset = Vector2( 0, 0 )
 122/shapes = [  ]
 123/name = ""
-123/texture = ExtResource( 4 )
+123/texture = ExtResource( 13 )
 123/tex_offset = Vector2( 0, -64 )
 123/modulate = Color( 1, 1, 1, 1 )
 123/region = Rect2( 128, 128, 64, 64 )
@@ -1125,7 +1165,7 @@ resource_name = "Tileset"
 123/navigation_offset = Vector2( 0, 0 )
 123/shapes = [  ]
 124/name = ""
-124/texture = ExtResource( 4 )
+124/texture = ExtResource( 13 )
 124/tex_offset = Vector2( 0, -64 )
 124/modulate = Color( 1, 1, 1, 1 )
 124/region = Rect2( 192, 128, 64, 64 )
@@ -1134,7 +1174,7 @@ resource_name = "Tileset"
 124/navigation_offset = Vector2( 0, 0 )
 124/shapes = [  ]
 125/name = ""
-125/texture = ExtResource( 4 )
+125/texture = ExtResource( 13 )
 125/tex_offset = Vector2( 0, -64 )
 125/modulate = Color( 1, 1, 1, 1 )
 125/region = Rect2( 256, 128, 64, 64 )
@@ -1143,7 +1183,7 @@ resource_name = "Tileset"
 125/navigation_offset = Vector2( 0, 0 )
 125/shapes = [  ]
 126/name = ""
-126/texture = ExtResource( 4 )
+126/texture = ExtResource( 13 )
 126/tex_offset = Vector2( 0, -64 )
 126/modulate = Color( 1, 1, 1, 1 )
 126/region = Rect2( 320, 128, 64, 64 )
@@ -1152,7 +1192,7 @@ resource_name = "Tileset"
 126/navigation_offset = Vector2( 0, 0 )
 126/shapes = [  ]
 127/name = ""
-127/texture = ExtResource( 4 )
+127/texture = ExtResource( 13 )
 127/tex_offset = Vector2( 0, -64 )
 127/modulate = Color( 1, 1, 1, 1 )
 127/region = Rect2( 384, 128, 64, 64 )
@@ -1161,7 +1201,7 @@ resource_name = "Tileset"
 127/navigation_offset = Vector2( 0, 0 )
 127/shapes = [  ]
 128/name = ""
-128/texture = ExtResource( 4 )
+128/texture = ExtResource( 13 )
 128/tex_offset = Vector2( 0, -64 )
 128/modulate = Color( 1, 1, 1, 1 )
 128/region = Rect2( 448, 128, 64, 64 )
@@ -1170,7 +1210,7 @@ resource_name = "Tileset"
 128/navigation_offset = Vector2( 0, 0 )
 128/shapes = [  ]
 129/name = ""
-129/texture = ExtResource( 4 )
+129/texture = ExtResource( 13 )
 129/tex_offset = Vector2( 0, -64 )
 129/modulate = Color( 1, 1, 1, 1 )
 129/region = Rect2( 512, 128, 64, 64 )
@@ -1179,7 +1219,7 @@ resource_name = "Tileset"
 129/navigation_offset = Vector2( 0, 0 )
 129/shapes = [  ]
 130/name = ""
-130/texture = ExtResource( 4 )
+130/texture = ExtResource( 13 )
 130/tex_offset = Vector2( 0, -64 )
 130/modulate = Color( 1, 1, 1, 1 )
 130/region = Rect2( 576, 128, 64, 64 )
@@ -1188,7 +1228,7 @@ resource_name = "Tileset"
 130/navigation_offset = Vector2( 0, 0 )
 130/shapes = [  ]
 131/name = ""
-131/texture = ExtResource( 4 )
+131/texture = ExtResource( 13 )
 131/tex_offset = Vector2( 0, -64 )
 131/modulate = Color( 1, 1, 1, 1 )
 131/region = Rect2( 0, 192, 64, 64 )
@@ -1197,7 +1237,7 @@ resource_name = "Tileset"
 131/navigation_offset = Vector2( 0, 0 )
 131/shapes = [  ]
 132/name = ""
-132/texture = ExtResource( 4 )
+132/texture = ExtResource( 13 )
 132/tex_offset = Vector2( 0, -64 )
 132/modulate = Color( 1, 1, 1, 1 )
 132/region = Rect2( 64, 192, 64, 64 )
@@ -1206,7 +1246,7 @@ resource_name = "Tileset"
 132/navigation_offset = Vector2( 0, 0 )
 132/shapes = [  ]
 133/name = ""
-133/texture = ExtResource( 4 )
+133/texture = ExtResource( 13 )
 133/tex_offset = Vector2( 0, -64 )
 133/modulate = Color( 1, 1, 1, 1 )
 133/region = Rect2( 128, 192, 64, 64 )
@@ -1215,7 +1255,7 @@ resource_name = "Tileset"
 133/navigation_offset = Vector2( 0, 0 )
 133/shapes = [  ]
 134/name = ""
-134/texture = ExtResource( 4 )
+134/texture = ExtResource( 13 )
 134/tex_offset = Vector2( 0, -64 )
 134/modulate = Color( 1, 1, 1, 1 )
 134/region = Rect2( 192, 192, 64, 64 )
@@ -1224,7 +1264,7 @@ resource_name = "Tileset"
 134/navigation_offset = Vector2( 0, 0 )
 134/shapes = [  ]
 135/name = ""
-135/texture = ExtResource( 4 )
+135/texture = ExtResource( 13 )
 135/tex_offset = Vector2( 0, -64 )
 135/modulate = Color( 1, 1, 1, 1 )
 135/region = Rect2( 256, 192, 64, 64 )
@@ -1233,7 +1273,7 @@ resource_name = "Tileset"
 135/navigation_offset = Vector2( 0, 0 )
 135/shapes = [  ]
 136/name = ""
-136/texture = ExtResource( 4 )
+136/texture = ExtResource( 13 )
 136/tex_offset = Vector2( 0, -64 )
 136/modulate = Color( 1, 1, 1, 1 )
 136/region = Rect2( 320, 192, 64, 64 )
@@ -1242,7 +1282,7 @@ resource_name = "Tileset"
 136/navigation_offset = Vector2( 0, 0 )
 136/shapes = [  ]
 137/name = ""
-137/texture = ExtResource( 4 )
+137/texture = ExtResource( 13 )
 137/tex_offset = Vector2( 0, -64 )
 137/modulate = Color( 1, 1, 1, 1 )
 137/region = Rect2( 384, 192, 64, 64 )
@@ -1251,7 +1291,7 @@ resource_name = "Tileset"
 137/navigation_offset = Vector2( 0, 0 )
 137/shapes = [  ]
 138/name = ""
-138/texture = ExtResource( 4 )
+138/texture = ExtResource( 13 )
 138/tex_offset = Vector2( 0, -64 )
 138/modulate = Color( 1, 1, 1, 1 )
 138/region = Rect2( 448, 192, 64, 64 )
@@ -1260,7 +1300,7 @@ resource_name = "Tileset"
 138/navigation_offset = Vector2( 0, 0 )
 138/shapes = [  ]
 139/name = ""
-139/texture = ExtResource( 4 )
+139/texture = ExtResource( 13 )
 139/tex_offset = Vector2( 0, -64 )
 139/modulate = Color( 1, 1, 1, 1 )
 139/region = Rect2( 512, 192, 64, 64 )
@@ -1269,7 +1309,7 @@ resource_name = "Tileset"
 139/navigation_offset = Vector2( 0, 0 )
 139/shapes = [  ]
 140/name = ""
-140/texture = ExtResource( 4 )
+140/texture = ExtResource( 13 )
 140/tex_offset = Vector2( 0, -64 )
 140/modulate = Color( 1, 1, 1, 1 )
 140/region = Rect2( 576, 192, 64, 64 )
@@ -1278,7 +1318,7 @@ resource_name = "Tileset"
 140/navigation_offset = Vector2( 0, 0 )
 140/shapes = [  ]
 141/name = ""
-141/texture = ExtResource( 4 )
+141/texture = ExtResource( 13 )
 141/tex_offset = Vector2( 0, -64 )
 141/modulate = Color( 1, 1, 1, 1 )
 141/region = Rect2( 0, 256, 64, 64 )
@@ -1287,7 +1327,7 @@ resource_name = "Tileset"
 141/navigation_offset = Vector2( 0, 0 )
 141/shapes = [  ]
 142/name = ""
-142/texture = ExtResource( 4 )
+142/texture = ExtResource( 13 )
 142/tex_offset = Vector2( 0, -64 )
 142/modulate = Color( 1, 1, 1, 1 )
 142/region = Rect2( 64, 256, 64, 64 )
@@ -1296,7 +1336,7 @@ resource_name = "Tileset"
 142/navigation_offset = Vector2( 0, 0 )
 142/shapes = [  ]
 143/name = ""
-143/texture = ExtResource( 4 )
+143/texture = ExtResource( 13 )
 143/tex_offset = Vector2( 0, -64 )
 143/modulate = Color( 1, 1, 1, 1 )
 143/region = Rect2( 128, 256, 64, 64 )
@@ -1305,7 +1345,7 @@ resource_name = "Tileset"
 143/navigation_offset = Vector2( 0, 0 )
 143/shapes = [  ]
 144/name = ""
-144/texture = ExtResource( 4 )
+144/texture = ExtResource( 13 )
 144/tex_offset = Vector2( 0, -64 )
 144/modulate = Color( 1, 1, 1, 1 )
 144/region = Rect2( 192, 256, 64, 64 )
@@ -1314,7 +1354,7 @@ resource_name = "Tileset"
 144/navigation_offset = Vector2( 0, 0 )
 144/shapes = [  ]
 145/name = ""
-145/texture = ExtResource( 4 )
+145/texture = ExtResource( 13 )
 145/tex_offset = Vector2( 0, -64 )
 145/modulate = Color( 1, 1, 1, 1 )
 145/region = Rect2( 256, 256, 64, 64 )
@@ -1323,7 +1363,7 @@ resource_name = "Tileset"
 145/navigation_offset = Vector2( 0, 0 )
 145/shapes = [  ]
 146/name = ""
-146/texture = ExtResource( 4 )
+146/texture = ExtResource( 13 )
 146/tex_offset = Vector2( 0, -64 )
 146/modulate = Color( 1, 1, 1, 1 )
 146/region = Rect2( 320, 256, 64, 64 )
@@ -1332,7 +1372,7 @@ resource_name = "Tileset"
 146/navigation_offset = Vector2( 0, 0 )
 146/shapes = [  ]
 147/name = ""
-147/texture = ExtResource( 4 )
+147/texture = ExtResource( 13 )
 147/tex_offset = Vector2( 0, -64 )
 147/modulate = Color( 1, 1, 1, 1 )
 147/region = Rect2( 384, 256, 64, 64 )
@@ -1341,7 +1381,7 @@ resource_name = "Tileset"
 147/navigation_offset = Vector2( 0, 0 )
 147/shapes = [  ]
 148/name = ""
-148/texture = ExtResource( 4 )
+148/texture = ExtResource( 13 )
 148/tex_offset = Vector2( 0, -64 )
 148/modulate = Color( 1, 1, 1, 1 )
 148/region = Rect2( 448, 256, 64, 64 )
@@ -1350,7 +1390,7 @@ resource_name = "Tileset"
 148/navigation_offset = Vector2( 0, 0 )
 148/shapes = [  ]
 149/name = ""
-149/texture = ExtResource( 4 )
+149/texture = ExtResource( 13 )
 149/tex_offset = Vector2( 0, -64 )
 149/modulate = Color( 1, 1, 1, 1 )
 149/region = Rect2( 512, 256, 64, 64 )
@@ -1359,7 +1399,7 @@ resource_name = "Tileset"
 149/navigation_offset = Vector2( 0, 0 )
 149/shapes = [  ]
 150/name = ""
-150/texture = ExtResource( 4 )
+150/texture = ExtResource( 13 )
 150/tex_offset = Vector2( 0, -64 )
 150/modulate = Color( 1, 1, 1, 1 )
 150/region = Rect2( 576, 256, 64, 64 )
@@ -1368,7 +1408,7 @@ resource_name = "Tileset"
 150/navigation_offset = Vector2( 0, 0 )
 150/shapes = [  ]
 151/name = ""
-151/texture = ExtResource( 4 )
+151/texture = ExtResource( 13 )
 151/tex_offset = Vector2( 0, -64 )
 151/modulate = Color( 1, 1, 1, 1 )
 151/region = Rect2( 0, 320, 64, 64 )
@@ -1377,7 +1417,7 @@ resource_name = "Tileset"
 151/navigation_offset = Vector2( 0, 0 )
 151/shapes = [  ]
 152/name = ""
-152/texture = ExtResource( 4 )
+152/texture = ExtResource( 13 )
 152/tex_offset = Vector2( 0, -64 )
 152/modulate = Color( 1, 1, 1, 1 )
 152/region = Rect2( 64, 320, 64, 64 )
@@ -1386,7 +1426,7 @@ resource_name = "Tileset"
 152/navigation_offset = Vector2( 0, 0 )
 152/shapes = [  ]
 153/name = ""
-153/texture = ExtResource( 4 )
+153/texture = ExtResource( 13 )
 153/tex_offset = Vector2( 0, -64 )
 153/modulate = Color( 1, 1, 1, 1 )
 153/region = Rect2( 128, 320, 64, 64 )
@@ -1395,7 +1435,7 @@ resource_name = "Tileset"
 153/navigation_offset = Vector2( 0, 0 )
 153/shapes = [  ]
 154/name = ""
-154/texture = ExtResource( 4 )
+154/texture = ExtResource( 13 )
 154/tex_offset = Vector2( 0, -64 )
 154/modulate = Color( 1, 1, 1, 1 )
 154/region = Rect2( 192, 320, 64, 64 )
@@ -1404,7 +1444,7 @@ resource_name = "Tileset"
 154/navigation_offset = Vector2( 0, 0 )
 154/shapes = [  ]
 155/name = ""
-155/texture = ExtResource( 4 )
+155/texture = ExtResource( 13 )
 155/tex_offset = Vector2( 0, -64 )
 155/modulate = Color( 1, 1, 1, 1 )
 155/region = Rect2( 256, 320, 64, 64 )
@@ -1413,7 +1453,7 @@ resource_name = "Tileset"
 155/navigation_offset = Vector2( 0, 0 )
 155/shapes = [  ]
 156/name = ""
-156/texture = ExtResource( 4 )
+156/texture = ExtResource( 13 )
 156/tex_offset = Vector2( 0, -64 )
 156/modulate = Color( 1, 1, 1, 1 )
 156/region = Rect2( 320, 320, 64, 64 )
@@ -1422,7 +1462,7 @@ resource_name = "Tileset"
 156/navigation_offset = Vector2( 0, 0 )
 156/shapes = [  ]
 157/name = ""
-157/texture = ExtResource( 4 )
+157/texture = ExtResource( 13 )
 157/tex_offset = Vector2( 0, -64 )
 157/modulate = Color( 1, 1, 1, 1 )
 157/region = Rect2( 384, 320, 64, 64 )
@@ -1431,7 +1471,7 @@ resource_name = "Tileset"
 157/navigation_offset = Vector2( 0, 0 )
 157/shapes = [  ]
 158/name = ""
-158/texture = ExtResource( 4 )
+158/texture = ExtResource( 13 )
 158/tex_offset = Vector2( 0, -64 )
 158/modulate = Color( 1, 1, 1, 1 )
 158/region = Rect2( 448, 320, 64, 64 )
@@ -1440,7 +1480,7 @@ resource_name = "Tileset"
 158/navigation_offset = Vector2( 0, 0 )
 158/shapes = [  ]
 159/name = ""
-159/texture = ExtResource( 4 )
+159/texture = ExtResource( 13 )
 159/tex_offset = Vector2( 0, -64 )
 159/modulate = Color( 1, 1, 1, 1 )
 159/region = Rect2( 512, 320, 64, 64 )
@@ -1449,7 +1489,7 @@ resource_name = "Tileset"
 159/navigation_offset = Vector2( 0, 0 )
 159/shapes = [  ]
 160/name = ""
-160/texture = ExtResource( 4 )
+160/texture = ExtResource( 13 )
 160/tex_offset = Vector2( 0, -64 )
 160/modulate = Color( 1, 1, 1, 1 )
 160/region = Rect2( 576, 320, 64, 64 )
@@ -1458,7 +1498,7 @@ resource_name = "Tileset"
 160/navigation_offset = Vector2( 0, 0 )
 160/shapes = [  ]
 161/name = ""
-161/texture = ExtResource( 4 )
+161/texture = ExtResource( 13 )
 161/tex_offset = Vector2( 0, -64 )
 161/modulate = Color( 1, 1, 1, 1 )
 161/region = Rect2( 0, 384, 64, 64 )
@@ -1467,7 +1507,7 @@ resource_name = "Tileset"
 161/navigation_offset = Vector2( 0, 0 )
 161/shapes = [  ]
 162/name = ""
-162/texture = ExtResource( 4 )
+162/texture = ExtResource( 13 )
 162/tex_offset = Vector2( 0, -64 )
 162/modulate = Color( 1, 1, 1, 1 )
 162/region = Rect2( 64, 384, 64, 64 )
@@ -1476,7 +1516,7 @@ resource_name = "Tileset"
 162/navigation_offset = Vector2( 0, 0 )
 162/shapes = [  ]
 163/name = ""
-163/texture = ExtResource( 4 )
+163/texture = ExtResource( 13 )
 163/tex_offset = Vector2( 0, -64 )
 163/modulate = Color( 1, 1, 1, 1 )
 163/region = Rect2( 128, 384, 64, 64 )
@@ -1485,7 +1525,7 @@ resource_name = "Tileset"
 163/navigation_offset = Vector2( 0, 0 )
 163/shapes = [  ]
 164/name = ""
-164/texture = ExtResource( 4 )
+164/texture = ExtResource( 13 )
 164/tex_offset = Vector2( 0, -64 )
 164/modulate = Color( 1, 1, 1, 1 )
 164/region = Rect2( 192, 384, 64, 64 )
@@ -1494,7 +1534,7 @@ resource_name = "Tileset"
 164/navigation_offset = Vector2( 0, 0 )
 164/shapes = [  ]
 165/name = ""
-165/texture = ExtResource( 4 )
+165/texture = ExtResource( 13 )
 165/tex_offset = Vector2( 0, -64 )
 165/modulate = Color( 1, 1, 1, 1 )
 165/region = Rect2( 256, 384, 64, 64 )
@@ -1503,7 +1543,7 @@ resource_name = "Tileset"
 165/navigation_offset = Vector2( 0, 0 )
 165/shapes = [  ]
 166/name = ""
-166/texture = ExtResource( 4 )
+166/texture = ExtResource( 13 )
 166/tex_offset = Vector2( 0, -64 )
 166/modulate = Color( 1, 1, 1, 1 )
 166/region = Rect2( 320, 384, 64, 64 )
@@ -1512,7 +1552,7 @@ resource_name = "Tileset"
 166/navigation_offset = Vector2( 0, 0 )
 166/shapes = [  ]
 167/name = ""
-167/texture = ExtResource( 4 )
+167/texture = ExtResource( 13 )
 167/tex_offset = Vector2( 0, -64 )
 167/modulate = Color( 1, 1, 1, 1 )
 167/region = Rect2( 384, 384, 64, 64 )
@@ -1521,7 +1561,7 @@ resource_name = "Tileset"
 167/navigation_offset = Vector2( 0, 0 )
 167/shapes = [  ]
 168/name = ""
-168/texture = ExtResource( 4 )
+168/texture = ExtResource( 13 )
 168/tex_offset = Vector2( 0, -64 )
 168/modulate = Color( 1, 1, 1, 1 )
 168/region = Rect2( 448, 384, 64, 64 )
@@ -1530,7 +1570,7 @@ resource_name = "Tileset"
 168/navigation_offset = Vector2( 0, 0 )
 168/shapes = [  ]
 169/name = ""
-169/texture = ExtResource( 4 )
+169/texture = ExtResource( 13 )
 169/tex_offset = Vector2( 0, -64 )
 169/modulate = Color( 1, 1, 1, 1 )
 169/region = Rect2( 512, 384, 64, 64 )
@@ -1539,7 +1579,7 @@ resource_name = "Tileset"
 169/navigation_offset = Vector2( 0, 0 )
 169/shapes = [  ]
 170/name = ""
-170/texture = ExtResource( 4 )
+170/texture = ExtResource( 13 )
 170/tex_offset = Vector2( 0, -64 )
 170/modulate = Color( 1, 1, 1, 1 )
 170/region = Rect2( 576, 384, 64, 64 )
@@ -1548,7 +1588,7 @@ resource_name = "Tileset"
 170/navigation_offset = Vector2( 0, 0 )
 170/shapes = [  ]
 171/name = ""
-171/texture = ExtResource( 4 )
+171/texture = ExtResource( 13 )
 171/tex_offset = Vector2( 0, -64 )
 171/modulate = Color( 1, 1, 1, 1 )
 171/region = Rect2( 0, 448, 64, 64 )
@@ -1557,7 +1597,7 @@ resource_name = "Tileset"
 171/navigation_offset = Vector2( 0, 0 )
 171/shapes = [  ]
 172/name = ""
-172/texture = ExtResource( 4 )
+172/texture = ExtResource( 13 )
 172/tex_offset = Vector2( 0, -64 )
 172/modulate = Color( 1, 1, 1, 1 )
 172/region = Rect2( 64, 448, 64, 64 )
@@ -1566,7 +1606,7 @@ resource_name = "Tileset"
 172/navigation_offset = Vector2( 0, 0 )
 172/shapes = [  ]
 173/name = ""
-173/texture = ExtResource( 4 )
+173/texture = ExtResource( 13 )
 173/tex_offset = Vector2( 0, -64 )
 173/modulate = Color( 1, 1, 1, 1 )
 173/region = Rect2( 128, 448, 64, 64 )
@@ -1575,7 +1615,7 @@ resource_name = "Tileset"
 173/navigation_offset = Vector2( 0, 0 )
 173/shapes = [  ]
 174/name = ""
-174/texture = ExtResource( 4 )
+174/texture = ExtResource( 13 )
 174/tex_offset = Vector2( 0, -64 )
 174/modulate = Color( 1, 1, 1, 1 )
 174/region = Rect2( 192, 448, 64, 64 )
@@ -1584,7 +1624,7 @@ resource_name = "Tileset"
 174/navigation_offset = Vector2( 0, 0 )
 174/shapes = [  ]
 175/name = ""
-175/texture = ExtResource( 4 )
+175/texture = ExtResource( 13 )
 175/tex_offset = Vector2( 0, -64 )
 175/modulate = Color( 1, 1, 1, 1 )
 175/region = Rect2( 256, 448, 64, 64 )
@@ -1593,7 +1633,7 @@ resource_name = "Tileset"
 175/navigation_offset = Vector2( 0, 0 )
 175/shapes = [  ]
 176/name = ""
-176/texture = ExtResource( 4 )
+176/texture = ExtResource( 13 )
 176/tex_offset = Vector2( 0, -64 )
 176/modulate = Color( 1, 1, 1, 1 )
 176/region = Rect2( 320, 448, 64, 64 )
@@ -1602,7 +1642,7 @@ resource_name = "Tileset"
 176/navigation_offset = Vector2( 0, 0 )
 176/shapes = [  ]
 177/name = ""
-177/texture = ExtResource( 4 )
+177/texture = ExtResource( 13 )
 177/tex_offset = Vector2( 0, -64 )
 177/modulate = Color( 1, 1, 1, 1 )
 177/region = Rect2( 384, 448, 64, 64 )
@@ -1611,7 +1651,7 @@ resource_name = "Tileset"
 177/navigation_offset = Vector2( 0, 0 )
 177/shapes = [  ]
 178/name = ""
-178/texture = ExtResource( 4 )
+178/texture = ExtResource( 13 )
 178/tex_offset = Vector2( 0, -64 )
 178/modulate = Color( 1, 1, 1, 1 )
 178/region = Rect2( 448, 448, 64, 64 )
@@ -1620,7 +1660,7 @@ resource_name = "Tileset"
 178/navigation_offset = Vector2( 0, 0 )
 178/shapes = [  ]
 179/name = ""
-179/texture = ExtResource( 4 )
+179/texture = ExtResource( 13 )
 179/tex_offset = Vector2( 0, -64 )
 179/modulate = Color( 1, 1, 1, 1 )
 179/region = Rect2( 512, 448, 64, 64 )
@@ -1629,7 +1669,7 @@ resource_name = "Tileset"
 179/navigation_offset = Vector2( 0, 0 )
 179/shapes = [  ]
 180/name = ""
-180/texture = ExtResource( 4 )
+180/texture = ExtResource( 13 )
 180/tex_offset = Vector2( 0, -64 )
 180/modulate = Color( 1, 1, 1, 1 )
 180/region = Rect2( 576, 448, 64, 64 )
@@ -1638,7 +1678,7 @@ resource_name = "Tileset"
 180/navigation_offset = Vector2( 0, 0 )
 180/shapes = [  ]
 181/name = ""
-181/texture = ExtResource( 4 )
+181/texture = ExtResource( 13 )
 181/tex_offset = Vector2( 0, -64 )
 181/modulate = Color( 1, 1, 1, 1 )
 181/region = Rect2( 0, 512, 64, 64 )
@@ -1647,7 +1687,7 @@ resource_name = "Tileset"
 181/navigation_offset = Vector2( 0, 0 )
 181/shapes = [  ]
 182/name = ""
-182/texture = ExtResource( 4 )
+182/texture = ExtResource( 13 )
 182/tex_offset = Vector2( 0, -64 )
 182/modulate = Color( 1, 1, 1, 1 )
 182/region = Rect2( 64, 512, 64, 64 )
@@ -1656,7 +1696,7 @@ resource_name = "Tileset"
 182/navigation_offset = Vector2( 0, 0 )
 182/shapes = [  ]
 183/name = ""
-183/texture = ExtResource( 4 )
+183/texture = ExtResource( 13 )
 183/tex_offset = Vector2( 0, -64 )
 183/modulate = Color( 1, 1, 1, 1 )
 183/region = Rect2( 128, 512, 64, 64 )
@@ -1665,7 +1705,7 @@ resource_name = "Tileset"
 183/navigation_offset = Vector2( 0, 0 )
 183/shapes = [  ]
 184/name = ""
-184/texture = ExtResource( 4 )
+184/texture = ExtResource( 13 )
 184/tex_offset = Vector2( 0, -64 )
 184/modulate = Color( 1, 1, 1, 1 )
 184/region = Rect2( 192, 512, 64, 64 )
@@ -1674,7 +1714,7 @@ resource_name = "Tileset"
 184/navigation_offset = Vector2( 0, 0 )
 184/shapes = [  ]
 185/name = ""
-185/texture = ExtResource( 4 )
+185/texture = ExtResource( 13 )
 185/tex_offset = Vector2( 0, -64 )
 185/modulate = Color( 1, 1, 1, 1 )
 185/region = Rect2( 256, 512, 64, 64 )
@@ -1683,7 +1723,7 @@ resource_name = "Tileset"
 185/navigation_offset = Vector2( 0, 0 )
 185/shapes = [  ]
 186/name = ""
-186/texture = ExtResource( 4 )
+186/texture = ExtResource( 13 )
 186/tex_offset = Vector2( 0, -64 )
 186/modulate = Color( 1, 1, 1, 1 )
 186/region = Rect2( 320, 512, 64, 64 )
@@ -1692,7 +1732,7 @@ resource_name = "Tileset"
 186/navigation_offset = Vector2( 0, 0 )
 186/shapes = [  ]
 187/name = ""
-187/texture = ExtResource( 4 )
+187/texture = ExtResource( 13 )
 187/tex_offset = Vector2( 0, -64 )
 187/modulate = Color( 1, 1, 1, 1 )
 187/region = Rect2( 384, 512, 64, 64 )
@@ -1701,7 +1741,7 @@ resource_name = "Tileset"
 187/navigation_offset = Vector2( 0, 0 )
 187/shapes = [  ]
 188/name = ""
-188/texture = ExtResource( 4 )
+188/texture = ExtResource( 13 )
 188/tex_offset = Vector2( 0, -64 )
 188/modulate = Color( 1, 1, 1, 1 )
 188/region = Rect2( 448, 512, 64, 64 )
@@ -1710,7 +1750,7 @@ resource_name = "Tileset"
 188/navigation_offset = Vector2( 0, 0 )
 188/shapes = [  ]
 189/name = ""
-189/texture = ExtResource( 4 )
+189/texture = ExtResource( 13 )
 189/tex_offset = Vector2( 0, -64 )
 189/modulate = Color( 1, 1, 1, 1 )
 189/region = Rect2( 512, 512, 64, 64 )
@@ -1719,7 +1759,7 @@ resource_name = "Tileset"
 189/navigation_offset = Vector2( 0, 0 )
 189/shapes = [  ]
 190/name = ""
-190/texture = ExtResource( 4 )
+190/texture = ExtResource( 13 )
 190/tex_offset = Vector2( 0, -64 )
 190/modulate = Color( 1, 1, 1, 1 )
 190/region = Rect2( 576, 512, 64, 64 )
@@ -1728,7 +1768,7 @@ resource_name = "Tileset"
 190/navigation_offset = Vector2( 0, 0 )
 190/shapes = [  ]
 191/name = ""
-191/texture = ExtResource( 4 )
+191/texture = ExtResource( 13 )
 191/tex_offset = Vector2( 0, -64 )
 191/modulate = Color( 1, 1, 1, 1 )
 191/region = Rect2( 0, 576, 64, 64 )
@@ -1737,7 +1777,7 @@ resource_name = "Tileset"
 191/navigation_offset = Vector2( 0, 0 )
 191/shapes = [  ]
 192/name = ""
-192/texture = ExtResource( 4 )
+192/texture = ExtResource( 13 )
 192/tex_offset = Vector2( 0, -64 )
 192/modulate = Color( 1, 1, 1, 1 )
 192/region = Rect2( 64, 576, 64, 64 )
@@ -1746,7 +1786,7 @@ resource_name = "Tileset"
 192/navigation_offset = Vector2( 0, 0 )
 192/shapes = [  ]
 193/name = ""
-193/texture = ExtResource( 4 )
+193/texture = ExtResource( 13 )
 193/tex_offset = Vector2( 0, -64 )
 193/modulate = Color( 1, 1, 1, 1 )
 193/region = Rect2( 128, 576, 64, 64 )
@@ -1755,7 +1795,7 @@ resource_name = "Tileset"
 193/navigation_offset = Vector2( 0, 0 )
 193/shapes = [  ]
 194/name = ""
-194/texture = ExtResource( 4 )
+194/texture = ExtResource( 13 )
 194/tex_offset = Vector2( 0, -64 )
 194/modulate = Color( 1, 1, 1, 1 )
 194/region = Rect2( 192, 576, 64, 64 )
@@ -1764,7 +1804,7 @@ resource_name = "Tileset"
 194/navigation_offset = Vector2( 0, 0 )
 194/shapes = [  ]
 195/name = ""
-195/texture = ExtResource( 4 )
+195/texture = ExtResource( 13 )
 195/tex_offset = Vector2( 0, -64 )
 195/modulate = Color( 1, 1, 1, 1 )
 195/region = Rect2( 256, 576, 64, 64 )
@@ -1773,7 +1813,7 @@ resource_name = "Tileset"
 195/navigation_offset = Vector2( 0, 0 )
 195/shapes = [  ]
 196/name = ""
-196/texture = ExtResource( 4 )
+196/texture = ExtResource( 13 )
 196/tex_offset = Vector2( 0, -64 )
 196/modulate = Color( 1, 1, 1, 1 )
 196/region = Rect2( 320, 576, 64, 64 )
@@ -1782,7 +1822,7 @@ resource_name = "Tileset"
 196/navigation_offset = Vector2( 0, 0 )
 196/shapes = [  ]
 197/name = ""
-197/texture = ExtResource( 4 )
+197/texture = ExtResource( 13 )
 197/tex_offset = Vector2( 0, -64 )
 197/modulate = Color( 1, 1, 1, 1 )
 197/region = Rect2( 384, 576, 64, 64 )
@@ -1791,7 +1831,7 @@ resource_name = "Tileset"
 197/navigation_offset = Vector2( 0, 0 )
 197/shapes = [  ]
 198/name = ""
-198/texture = ExtResource( 4 )
+198/texture = ExtResource( 13 )
 198/tex_offset = Vector2( 0, -64 )
 198/modulate = Color( 1, 1, 1, 1 )
 198/region = Rect2( 448, 576, 64, 64 )
@@ -1800,7 +1840,7 @@ resource_name = "Tileset"
 198/navigation_offset = Vector2( 0, 0 )
 198/shapes = [  ]
 199/name = ""
-199/texture = ExtResource( 4 )
+199/texture = ExtResource( 13 )
 199/tex_offset = Vector2( 0, -64 )
 199/modulate = Color( 1, 1, 1, 1 )
 199/region = Rect2( 512, 576, 64, 64 )
@@ -1809,7 +1849,7 @@ resource_name = "Tileset"
 199/navigation_offset = Vector2( 0, 0 )
 199/shapes = [  ]
 200/name = ""
-200/texture = ExtResource( 4 )
+200/texture = ExtResource( 13 )
 200/tex_offset = Vector2( 0, -64 )
 200/modulate = Color( 1, 1, 1, 1 )
 200/region = Rect2( 576, 576, 64, 64 )
@@ -1819,12 +1859,12 @@ resource_name = "Tileset"
 200/shapes = [  ]
 _sections_unfolded = [ "1" ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 48, 32 )
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=7]
 
 custom_solver_bias = 0.0
 radius = 174.485
@@ -1833,42 +1873,36 @@ radius = 174.485
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z Index" ]
-unit_number = 10
+unit_number = 50
+nextstage = 2
 
-[node name="SCREEN_BOUNDS" type="StaticBody2D" parent="." index="0"]
+[node name="CameraLimitTopLeft" type="Position2D" parent="." index="0"]
 
-editor/display_folded = true
-input_pickable = false
-collision_layer = 8
-collision_mask = 8
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-_sections_unfolded = [ "Collision" ]
+position = Vector2( 512, 296 )
+z_index = 101
+_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Polygon2D" type="CollisionPolygon2D" parent="SCREEN_BOUNDS" index="0"]
+[node name="CameraLimitBotRight" type="Position2D" parent="." index="1"]
 
-position = Vector2( 1, 0 )
-build_mode = 0
-polygon = PoolVector2Array( -1, 0, 1215, 0, 1215, 1152, -1, 1152, -1, 0, -50, -37, -281, 1328, 1420, 1322, 1437, -221, -50, -37 )
+position = Vector2( 704, 856 )
+z_index = 101
+_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Camera" type="KinematicBody2D" parent="." index="1"]
+[node name="Camera" type="KinematicBody2D" parent="." index="2"]
 
 position = Vector2( 512, 296 )
 input_pickable = false
 collision_layer = 8
 collision_mask = 8
 collision/safe_margin = 0.08
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera" index="0"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="Camera" index="1"]
 
-editor/display_folded = true
 anchor_mode = 1
 rotating = false
 current = true
@@ -1916,7 +1950,64 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Mouse", "Rect", "Transform" ]
 
-[node name="UpgradeBar" type="Container" parent="Camera/Camera2D/MenuRoot/Menu" index="0"]
+[node name="Units1" type="Label" parent="Camera/Camera2D/MenuRoot/Menu" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 175.0
+margin_top = 460.0
+margin_right = 334.0
+margin_bottom = 570.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+text = "Units Fighting:
+"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Units2" type="Label" parent="Camera/Camera2D/MenuRoot/Menu" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 698.0
+margin_top = 469.0
+margin_right = 857.0
+margin_bottom = 579.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 8 )
+text = "Units
+in base:
+"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="UpgradeBar" type="Container" parent="Camera/Camera2D/MenuRoot/Menu" index="2"]
 
 editor/display_folded = true
 anchor_left = 0.0
@@ -1933,8 +2024,39 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Rect" ]
 
-[node name="Panel" type="Panel" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar" index="0"]
+[node name="Sprite" type="Sprite" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar" index="0"]
 
+texture = ExtResource( 3 )
+centered = false
+_sections_unfolded = [ "Offset" ]
+
+[node name="Description" type="Label" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 344.0
+margin_top = 21.0
+margin_right = 682.0
+margin_bottom = 72.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+autowrap = true
+clip_text = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="Panel" type="Panel" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar" index="2"]
+
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -1945,9 +2067,11 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Rect", "Visibility" ]
 
 [node name="Damage" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel" index="0"]
 
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 1.0
@@ -1968,20 +2092,41 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 4 )
 _sections_unfolded = [ "Textures", "Visibility" ]
 
 [node name="Heal" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel" index="1"]
 
-modulate = Color( 0.125, 1, 0, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -496.0
+margin_top = -64.0
+margin_right = -432.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="Shield" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel" index="2"]
+
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -416.0
-margin_top = -80.0
+margin_top = -64.0
 margin_right = -352.0
-margin_bottom = -16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -1993,35 +2138,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 6 )
 _sections_unfolded = [ "Textures", "Visibility" ]
 
-[node name="Shield" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel" index="2"]
-
-modulate = Color( 0, 0.71875, 1, 1 )
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -336.0
-margin_top = -80.0
-margin_right = -272.0
-margin_bottom = -16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-_sections_unfolded = [ "Textures", "Visibility" ]
-
-[node name="SpellBar" type="Container" parent="Camera/Camera2D/MenuRoot/Menu" index="1"]
+[node name="SpellBar" type="Container" parent="Camera/Camera2D/MenuRoot/Menu" index="3"]
 
 anchor_left = 1.0
 anchor_top = 0.0
@@ -2039,6 +2159,7 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Panel" type="Panel" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar" index="0"]
 
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -2050,10 +2171,34 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+_sections_unfolded = [ "Visibility" ]
 
 [node name="MoraleBoost" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel" index="0"]
 
-modulate = Color( 1, 0.351563, 0, 1 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -96.0
+margin_top = 528.0
+margin_right = -32.0
+margin_bottom = 592.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="MBCD" type="TextureProgress" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/MoraleBoost" index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -2062,28 +2207,36 @@ margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 2 )
-_sections_unfolded = [ "Textures", "Visibility" ]
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = null
+texture_over = null
+texture_progress = ExtResource( 8 )
+fill_mode = 5
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Mouse", "Textures" ]
 
 [node name="Fortify" type="TextureButton" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel" index="1"]
 
-modulate = Color( 0.730072, 0.433594, 1, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 80.0
-margin_right = 64.0
-margin_bottom = 144.0
+margin_left = -16.0
+margin_top = 528.0
+margin_right = 48.0
+margin_bottom = 592.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -2095,45 +2248,63 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 9 )
 _sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="FCD" type="TextureProgress" parent="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/Fortify" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = null
+texture_over = null
+texture_progress = ExtResource( 8 )
+fill_mode = 5
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Mouse", "Textures" ]
 
 [node name="VictoryScreen" type="Node2D" parent="Camera/Camera2D/MenuRoot" index="1"]
 
 editor/display_folded = true
 visible = false
-position = Vector2( 464, 272 )
+position = Vector2( 512, 246 )
 z_index = 100
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Panel" type="Panel" parent="Camera/Camera2D/MenuRoot/VictoryScreen" index="0"]
+[node name="Panel" type="Sprite" parent="Camera/Camera2D/MenuRoot/VictoryScreen" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -150.0
-margin_top = -150.0
-margin_right = 150.0
-margin_bottom = 150.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Rect" ]
+position = Vector2( 1, 127 )
+texture = ExtResource( 10 )
+_sections_unfolded = [ "Offset", "Rect" ]
 
-[node name="Label" type="Label" parent="Camera/Camera2D/MenuRoot/VictoryScreen/Panel" index="0"]
+[node name="StageClear" type="Label" parent="Camera/Camera2D/MenuRoot/VictoryScreen/Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 22.0
-margin_top = 134.0
-margin_right = 124.0
-margin_bottom = 148.0
+margin_left = -134.0
+margin_top = -136.0
+margin_right = -26.0
+margin_bottom = -104.0
 rect_scale = Vector2( 2.5, 2.5 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -2141,25 +2312,80 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
 text = "Stage clear!"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="test" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Next" type="Label" parent="Camera/Camera2D/MenuRoot/VictoryScreen/Panel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -58.0
+margin_top = -46.0
+margin_right = 37.0
+margin_bottom = -29.0
+rect_scale = Vector2( 1.2, 1.2 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+text = "Next"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="NextStage" type="TextureButton" parent="Camera/Camera2D/MenuRoot/VictoryScreen/Panel" index="2"]
+
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -58.0
+margin_top = -46.0
+margin_right = 56.0
+margin_bottom = -26.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 11 )
+_sections_unfolded = [ "Textures", "Visibility" ]
+
+[node name="test" parent="." index="3" instance=ExtResource( 12 )]
 
 visible = false
 
-[node name="map1" type="Node2D" parent="." index="3"]
+[node name="map1" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( -3008, -3136 )
 
 [node name="Ground" type="TileMap" parent="map1" index="0"]
 
 editor/display_folded = true
 mode = 0
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2180,7 +2406,7 @@ tile_data = PoolIntArray( 3211311, 111, 0, 3211312, 111, 0, 3211313, 111, 0, 321
 
 editor/display_folded = true
 mode = 0
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2201,7 +2427,7 @@ tile_data = PoolIntArray( 3211321, 1610612845, 0, 3276855, -1073741714, 0, 32768
 
 editor/display_folded = true
 mode = 0
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2222,7 +2448,7 @@ tile_data = PoolIntArray( 3407926, 125, 0, 3407927, 126, 0, 3407928, 127, 0, 340
 
 editor/display_folded = true
 mode = 0
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2243,7 +2469,7 @@ tile_data = PoolIntArray( 3342385, 536871058, 0, 3342386, 123, 0, 3342387, 123, 
 
 editor/display_folded = true
 mode = 0
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2264,7 +2490,7 @@ tile_data = PoolIntArray( 3276848, 105, 0, 3276849, 105, 0, 3276850, 105, 0, 334
 
 editor/display_folded = true
 mode = 0
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2285,7 +2511,7 @@ tile_data = PoolIntArray( 3211311, 143, 0, 3211312, 143, 0, 3211313, 143, 0, 321
 
 editor/display_folded = true
 mode = 0
-tile_set = SubResource( 1 )
+tile_set = SubResource( 5 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2302,16 +2528,15 @@ occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 3276852, 128, 0, 3276853, 115, 0, 3276855, 128, 0, 3276858, 124, 0, 3539004, 115, 0, 3670074, 115, 0, 3670076, 128, 0, 3735610, 117, 0, 3735612, 128, 0, 3801148, 115, 0, 4128824, 115, 0, 4194358, 115, 0 )
 
-[node name="Nav" type="Navigation2D" parent="." index="4"]
+[node name="Nav" type="Navigation2D" parent="." index="5"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Visibility" ]
 
 [node name="Map" type="TileMap" parent="Nav" index="0"]
 
 position = Vector2( 16, 16 )
 mode = 0
-tile_set = ExtResource( 5 )
+tile_set = ExtResource( 14 )
 cell_size = Vector2( 32, 32 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -2329,52 +2554,53 @@ format = 1
 tile_data = PoolIntArray( 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 327692, 0, 0, 327704, 0, 0, 327707, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 327711, 0, 0, 393228, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 458764, 0, 0, 458776, 0, 0, 458779, 0, 0, 458780, 0, 0, 458781, 0, 0, 458782, 0, 0, 458783, 0, 0, 524300, 0, 0, 524312, 0, 0, 589836, 0, 0, 589848, 0, 0, 655372, 0, 0, 655384, 0, 0, 720905, 0, 0, 720906, 0, 0, 720908, 0, 0, 720920, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786456, 0, 0, 851977, 0, 0, 851978, 0, 0, 851992, 0, 0, 917528, 0, 0, 983064, 0, 0, 1048600, 0, 0, 1114136, 0, 0, 1179654, 0, 0, 1179655, 0, 0, 1179656, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1179672, 0, 0, 1245190, 0, 0, 1245191, 0, 0, 1245192, 0, 0, 1310726, 0, 0, 1310727, 0, 0, 1310728, 0, 0, 1376264, 0, 0, 1441800, 0, 0, 1507336, 0, 0, 1507339, 0, 0, 1507340, 0, 0, 1507341, 0, 0, 1572872, 0, 0, 1572873, 0, 0, 1572874, 0, 0, 1572875, 0, 0, 1572876, 0, 0, 1572877, 0, 0, 1638408, 0, 0, 1638411, 0, 0, 1638412, 0, 0, 1638413, 0, 0, 1703944, 0, 0, 1769480, 0, 0, 1835016, 0, 0, 1900551, 0, 0, 1900552, 0, 0, 1900553, 0, 0, 1966087, 0, 0, 1966088, 0, 0, 1966089, 0, 0 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Units" type="Node" parent="." index="5"]
+[node name="Units" type="Node" parent="." index="6"]
 
-[node name="Towers" type="Node" parent="." index="6"]
+[node name="Towers" type="Node" parent="." index="7"]
 
-[node name="Tower3" parent="Towers" index="0" instance=ExtResource( 6 )]
+[node name="Tower3" parent="Towers" index="0" instance=ExtResource( 15 )]
 
 position = Vector2( 336, 416 )
 
-[node name="Tower" parent="Towers" index="1" instance=ExtResource( 6 )]
+[node name="Tower" parent="Towers" index="1" instance=ExtResource( 15 )]
 
 position = Vector2( 1008, 192 )
 
-[node name="Tower2" parent="Towers" index="2" instance=ExtResource( 6 )]
+[node name="Tower2" parent="Towers" index="2" instance=ExtResource( 15 )]
 
 position = Vector2( 1008, 272 )
 
-[node name="Tower4" parent="Towers" index="3" instance=ExtResource( 6 )]
+[node name="Tower4" parent="Towers" index="3" instance=ExtResource( 15 )]
 
 editor/display_folded = true
 position = Vector2( 240, 656 )
 
-[node name="Tower5" parent="Towers" index="4" instance=ExtResource( 6 )]
+[node name="Tower5" parent="Towers" index="4" instance=ExtResource( 15 )]
 
 editor/display_folded = true
 position = Vector2( 432, 768 )
 
-[node name="Tower6" parent="Towers" index="5" instance=ExtResource( 6 )]
+[node name="Tower6" parent="Towers" index="5" instance=ExtResource( 15 )]
 
 editor/display_folded = true
 position = Vector2( 432, 832 )
 
-[node name="Start_pos" type="Position2D" parent="." index="7"]
+[node name="Start_pos" type="Position2D" parent="." index="8"]
 
 position = Vector2( 160, 160 )
 
-[node name="SpawnTimer" type="Timer" parent="." index="8"]
+[node name="SpawnTimer" type="Timer" parent="." index="9"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = true
 
-[node name="Base" type="Area2D" parent="." index="9" groups=[
+[node name="Base" type="Area2D" parent="." index="10" groups=[
 "Enemy",
 ]]
 
+editor/display_folded = true
 position = Vector2( 288, 1008 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -2383,19 +2609,21 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 7 )
+script = ExtResource( 16 )
 health = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Base" index="0"]
 
 position = Vector2( 0, -32 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Base" index="1"]
 
 position = Vector2( 0, -32 )
-scale = Vector2( 1.5, 1 )
-texture = ExtResource( 2 )
+texture = ExtResource( 13 )
+region_enabled = true
+region_rect = Rect2( 128, 448, 128, 128 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="Defense" type="Area2D" parent="Base" index="2"]
 
@@ -2413,27 +2641,66 @@ _sections_unfolded = [ "Collision" ]
 
 [node name="Range" type="CollisionShape2D" parent="Base/Defense" index="0"]
 
-shape = SubResource( 4 )
+shape = SubResource( 7 )
 
-[node name="GroundTrap" parent="." index="10" instance=ExtResource( 8 )]
+[node name="BMTimer" type="Timer" parent="." index="11"]
 
-position = Vector2( 304, 96 )
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = false
 
-[connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Damage" to="." method="_on_Upgrade_selected" binds= [ 0 ]]
+[node name="FTimer" type="Timer" parent="." index="12"]
+
+process_mode = 1
+wait_time = 5.0
+one_shot = true
+autostart = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
+
+stream = ExtResource( 17 )
+volume_db = -30.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
 [connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Heal" to="." method="_on_Upgrade_selected" binds= [ 1 ]]
 
+[connection signal="mouse_entered" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Heal" to="." method="_on_Button_mouse_entered" binds= [ 0 ]]
+
+[connection signal="mouse_exited" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Heal" to="." method="_on_Button_mouse_left"]
+
 [connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Shield" to="." method="_on_Upgrade_selected" binds= [ 2 ]]
+
+[connection signal="mouse_entered" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Shield" to="." method="_on_Button_mouse_entered" binds= [ 1 ]]
+
+[connection signal="mouse_exited" from="Camera/Camera2D/MenuRoot/Menu/UpgradeBar/Panel/Shield" to="." method="_on_Button_mouse_left"]
 
 [connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/MoraleBoost" to="." method="_on_MoraleBoost_button_down"]
 
+[connection signal="mouse_entered" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/MoraleBoost" to="." method="_on_Button_mouse_entered" binds= [ 2 ]]
+
+[connection signal="mouse_exited" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/MoraleBoost" to="." method="_on_Button_mouse_left"]
+
 [connection signal="button_down" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/Fortify" to="." method="_on_Fortify_button_down"]
+
+[connection signal="mouse_entered" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/Fortify" to="." method="_on_Button_mouse_entered" binds= [ 3 ]]
+
+[connection signal="mouse_exited" from="Camera/Camera2D/MenuRoot/Menu/SpellBar/Panel/Fortify" to="." method="_on_Button_mouse_left"]
+
+[connection signal="button_down" from="Camera/Camera2D/MenuRoot/VictoryScreen/Panel/NextStage" to="." method="_on_NextStage_button_down"]
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
 [connection signal="area_entered" from="Base/Defense" to="Base" method="_on_Defense_area_entered"]
 
 [connection signal="area_exited" from="Base/Defense" to="Base" method="_on_Defense_area_exited"]
+
+[connection signal="timeout" from="BMTimer" to="." method="_on_BMTimer_timeout"]
+
+[connection signal="timeout" from="FTimer" to="." method="_on_FTimer_timeout"]
 
 
 [editable path="Towers/Tower4"]

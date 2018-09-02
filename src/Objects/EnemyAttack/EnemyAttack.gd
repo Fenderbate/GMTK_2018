@@ -11,9 +11,9 @@ var damage = 1
 var move = true
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	$Arrows/Sprite.look_at(target_pos)
+	for a in $Arrows.get_children():
+		a.rotation = $Arrows/Sprite.rotation
 
 func _physics_process(delta):
 	

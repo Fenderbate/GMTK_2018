@@ -13,6 +13,7 @@ func _input(event):
 			for t in targets:
 				t.moral_boost()
 			get_parent().spells.MoraleBoost = false
+			get_parent().get_node("BMTimer").start()
 			queue_free()
 		elif event.button_index == 2 and event.pressed:
 			queue_free()

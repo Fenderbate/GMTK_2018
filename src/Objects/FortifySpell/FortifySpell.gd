@@ -10,8 +10,10 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and event.pressed:
-			target.fortify()
-			get_parent().spells.Fortify = false
+			if target != null:
+				target.fortify()
+				get_parent().spells.Fortify = false
+				get_parent().get_node("FTimer").start()
 			queue_free()
 		elif event.button_index == 2 and event.pressed:
 			queue_free()

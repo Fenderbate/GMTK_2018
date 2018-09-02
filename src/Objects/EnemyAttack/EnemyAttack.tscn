@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Objects/EnemyAttack/EnemyAttack.gd" type="Script" id=1]
+[ext_resource path="res://src/Art/TowerArrow.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -22,30 +23,83 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 
-[node name="ColorRect" type="ColorRect" parent="." index="0"]
-
-modulate = Color( 1, 1, 1, 0.469608 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -32.0
-margin_top = -16.0
-margin_right = 32.0
-margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 0.535156, 0, 0.200684, 1 )
-_sections_unfolded = [ "Rect", "Visibility" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
 rotation = 1.5708
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Arrows" type="Node2D" parent="." index="1"]
+
+[node name="Sprite" type="Sprite" parent="Arrows" index="0"]
+
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite2" type="Sprite" parent="Arrows" index="1"]
+
+position = Vector2( 12.6181, 3.49556 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite3" type="Sprite" parent="Arrows" index="2"]
+
+position = Vector2( 5.20071, -10.3162 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite4" type="Sprite" parent="Arrows" index="3"]
+
+position = Vector2( -15.0053, -10.4014 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite5" type="Sprite" parent="Arrows" index="4"]
+
+position = Vector2( -17.0515, 10.1457 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite6" type="Sprite" parent="Arrows" index="5"]
+
+position = Vector2( 24.7247, -6.82061 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite7" type="Sprite" parent="Arrows" index="6"]
+
+position = Vector2( 21.4849, 10.913 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite8" type="Sprite" parent="Arrows" index="7"]
+
+position = Vector2( -27.1972, 0.170513 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite9" type="Sprite" parent="Arrows" index="8"]
+
+position = Vector2( 1.10836, 12.9592 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 1000
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="area_entered" from="." to="." method="_on_EnemyAttack_area_entered"]

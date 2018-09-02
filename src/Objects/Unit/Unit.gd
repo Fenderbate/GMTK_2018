@@ -46,7 +46,7 @@ func heal(hp):
 	health += hp
 	if health > MAX_HEALTH:
 		health = MAX_HEALTH
-		$HPPivot/Healthbar.value = health
+	$HPPivot/Healthbar.value = health
 
 func hurt(dmg):
 	if !shield:
@@ -67,6 +67,8 @@ func hit():
 
 func moral_boost():
 	speed += 100
+	$Animation.playback_speed = 2
+	$Sprite.self_modulate = Color(1,0.5,0.5,1)
 
 func update_path():
 	if goal != null:

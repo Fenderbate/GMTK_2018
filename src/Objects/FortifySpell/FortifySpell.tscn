@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Objects/FortifySpell/FortifySpell.gd" type="Script" id=1]
+[ext_resource path="res://src/Art/spell_target_circle.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -40,6 +41,15 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+
+position = Vector2( -4.76837e-007, -4.76837e-007 )
+rotation = 0.788505
+scale = Vector2( 0.1, 0.1 )
+z_index = 100
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [connection signal="area_entered" from="." to="." method="_on_FortifySpell_area_entered"]
 

@@ -10,6 +10,8 @@ var targets = []
 
 var damage = 0.075
 
+var captured = false
+
 func _ready():
 	
 	connect("victory", get_parent(), "victory")
@@ -17,8 +19,9 @@ func _ready():
 
 func _physics_process(delta):
 	
-	for t in targets:
-		t.hurt(damage)
+	if !base_captured:
+		for t in targets:
+			t.hurt(damage)
 
 func hurt(dmg):
 	health -= dmg
@@ -28,6 +31,7 @@ func hurt(dmg):
 				t.captured = true
 		print("Victory... Implement stuff here (On Base.gd)")
 		base_captured = true
+		captured = true
 		emit_signal("victory")
 		pass
 
